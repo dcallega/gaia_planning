@@ -2,8 +2,11 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from scipy.spatial import cKDTree
+from app import render_navigation
 
-st.set_page_config(page_title="Coverage Analysis", page_icon="🎯", layout="wide")
+st.set_page_config(
+    page_title="Coverage Analysis", page_icon="assets/gaia_icon.png", layout="wide"
+)
 
 # Load brand CSS
 try:
@@ -15,14 +18,6 @@ except FileNotFoundError:
 # Navigation and Hero
 st.markdown(
     """
-    <div class="gaia-nav">
-      <div class="inner">
-        <div class="gaia-brand">
-          <span class="gaia-bracket">[</span><span class="gaia-title">GAIA global health</span><span class="gaia-bracket">]</span>
-        </div>
-        <div style="font-size:.92rem;color:#475569;">Malawi</div>
-      </div>
-    </div>
     <div class="hero-lite">
       <h1>Healthcare Coverage Analysis</h1>
       <p>Analyzing population coverage by functional hospitals and GAIA clinics</p>
@@ -30,6 +25,9 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+# Navigation bar after hero - pages will be defined later
+if "navigation_pages" in st.session_state:
+    render_navigation(st.session_state.navigation_pages)
 
 
 # Function to parse GPS coordinates

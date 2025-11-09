@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from datetime import datetime, date, time
 import json
+from app import render_navigation
 
 st.set_page_config(page_title="Visit Logs", page_icon="📋", layout="wide")
 
@@ -16,14 +17,6 @@ except FileNotFoundError:
 # Navigation and Hero
 st.markdown(
     """
-    <div class="gaia-nav">
-      <div class="inner">
-        <div class="gaia-brand">
-          <span class="gaia-bracket">[</span><span class="gaia-title">GAIA global health</span><span class="gaia-bracket">]</span>
-        </div>
-        <div style="font-size:.92rem;color:#475569;">Malawi</div>
-      </div>
-    </div>
     <div class="hero-lite">
       <h1>Visit Logs Management System</h1>
       <p>Capture ground truth data to validate models and improve recommendations</p>
@@ -31,7 +24,9 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
+# Navigation bar after hero - pages will be defined later
+if "navigation_pages" in st.session_state:
+    render_navigation(st.session_state.navigation_pages)
 # Data storage path
 DATA_DIR = "data"
 VISIT_LOGS_FILE = os.path.join(DATA_DIR, "visit_logs.csv")
