@@ -45,3 +45,7 @@ Thumbs.db
 data/mwi_*.csv
 data/*.zip
 
+# Cache files
+data/.cache/
+.streamlit/cache/
+

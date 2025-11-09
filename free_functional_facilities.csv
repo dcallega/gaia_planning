@@ -1,0 +1,826 @@
+code,name,ownership,type,status,district,lat,lon,facility_id
+ZA230015,Airwing,Government,Clinic,Functional,Zomba,-15.38876,35.38508,9
+LL040016,Airwing,Government,Dispensary,Functional,Lilongwe,-13.96162,33.69679,10
+TH310026,Amalika,Government,Dispensary,Functional,Thyolo,-15.99203,35.03183,17
+BT240028,AMECA (Chilaweni),Government,Clinic,Functional,Blantyre,-15.703336,35.04442,18
+KU070030,Anchor Farm,Government,Health Centre,Functional,Kasungu,-13.41,33.39,19
+KU070031,Anchor Health Centre,Government,Health Centre,Functional,Kasungu,-13.414103,33.39074,20
+LL040033,Area 18,Government,Health Centre,Functional,Lilongwe,-13.94131,33.78051,22
+LL040037,Area 25,Government,Health Centre,Functional,Lilongwe,-13.89272,33.77465,25
+BK170053,Balaka District Hospital,Government,District Hospital,Functional,Balaka,-14.98498,34.94959,38
+BT240059,Bangwe,Government,Health Centre,Functional,Blantyre,-15.823832,35.080477,41
+NT120065,Bayani,Government,Health Post,Functional,Ntcheu,-15.1729008,34.6966684,45
+CK270069,Bereu,Government,Dispensary,Functional,Chikwawa,-16.15199,34.85376,48
+NK100073,Chipatala cha boma,Government,Health Centre,Functional,Nkhotakota,-13.36846,34.27404,52
+NT120080,Bilila,Government,Health Centre,Functional,Ntcheu,-14.82489,34.85134,58
+NT120081,Biliwiri,Government,Health Centre,Functional,Ntcheu,-14.817,34.638306,59
+ZA230083,Bimbi,Government,Health Centre,Functional,Zomba,-15.30876,35.4794,61
+BT240085,City assembly,Government,Clinic,Functional,Blantyre,-15.8,35.04,63
+RU140107,Bolero hospital,Government,Hospital,Functional,Rumphi,-10.97843,33.74342,81
+MU210108,Bondo health center,Government,Health Centre,Functional,Mulanje,-16.04267,35.61388,82
+DA020111,Bowe,Government,Health Centre,Functional,Dowa,-13.27878,33.68392,83
+KU070113,Bua,Government,Health Centre,Functional,Kasungu,-13.29403,33.53859,84
+NK100114,Bua,Government,Health Centre,Functional,Nkhotakota,-12.7967,34.20971,85
+KB050115,Bula,Government,Health Centre,Functional,Nkhata Bay,-11.22268,34.12324,86
+MZ160116,Bulala,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,87
+TH310121,Research,Government,Health Centre,Functional,Thyolo,-15.93981,35.02633,89
+LL040122,Bottom,Government,District Hospital,Functional,Lilongwe,-13.99164,33.77561,90
+NT120123,Bwanje,Government,Health Centre,Functional,Ntcheu,-14.64857,34.77445,91
+MZ160124,Bwengu,Government,Health Centre,Functional,Mzimba,-11.06356,33.91646,92
+BT240136,Chabvala,Government,Health Centre,Functional,Blantyre,-15.83372,34.83461,99
+LL040137,Chadza,Government,Health Centre,Functional,Lilongwe,-14.14715,33.84167,100
+MZ160138,Chagoma,Government,Health Post,Functional,Mzimba,-11.214085,33.807507,101
+SA090139,Tembwe,Government,Health Centre,Functional,Salima,-13.88028,34.36721,102
+DA020140,Chakhaza,Government,Health Centre,Functional,Dowa,-13.44421,33.64676,103
+KU070142,Vision,Government,Dispensary,Functional,Kasungu,-12.924306,33.776861,104
+MC190143,Chamba,Government,Dispensary,Functional,Machinga,-15.20234,35.42137,105
+ZA230144,Chamba,Government,Health Centre,Functional,Zomba,-15.46571,35.51662,106
+MU210145,Chambe Health Centre,Government,Health Centre,Functional,Mulanje,-16.071315,35.482338,107
+NT120147,Champiti,Government,Health Centre,Functional,Ntcheu,-14.90241,34.73185,109
+KU070148,Chamwabvi,Government,Health Centre,Functional,Kasungu,-13.10757,33.68528,110
+CK270150,Chang'ambika,Government,Health Centre,Functional,Chikwawa,-15.80301,34.30928,112
+ZA230151,Changalume,Government,Health Centre,Functional,Zomba,-15.3896,35.21184,113
+TH310152,Changata,Government,Health Centre,Functional,Thyolo,-16.078196,35.061008,114
+DA020153,Chankhungu,Government,Health Centre,Functional,Dowa,-13.76492,34.01471,115
+CK270155,Mkadana,Government,Clinic,Functional,Chikwawa,-16.00551,34.48567,116
+CK270157,Chipwaila Health Centre,Government,Health Centre,Functional,Chikwawa,-16.39842,34.77572,117
+MC190159,Chapusa,Government,Health Post,Functional,Machinga,-14.94175,35.613673,119
+CP060163,Chendo,Government,Health Post,Functional,Chitipa,-9.882464,33.410688,122
+KB050164,Chesamu,Government,Health Centre,Functional,Nkhata Bay,-11.85422,34.01836,123
+BT240170,Chichiri Prison Clinic,Government,Clinic,Functional,Blantyre,-15.80577,35.03242,128
+BK170173,chiendausiku,Government,Health Centre,Functional,Balaka,-15.01855,35.07653,131
+NE290176,Chifunga Health center,Government,Health Centre,Functional,Neno,-15.59825,34.69892,133
+BT240180,Chigumula Clinic,Government,Clinic,Functional,Blantyre,-15.89,35.06,136
+KA150181,Chihepusha,Government,Health Post,Functional,Karonga,-10.332331,34.110642,137
+NT120182,Chikande,Government,Clinic,Functional,Ntcheu,-14.77261,34.90768,138
+MZ160184,Chikangawa,Government,Health Centre,Functional,Mzimba,-11.843327,33.8007455,139
+MG200185,Chikole,Government,Clinic,Functional,Mangochi,-14.422,35.38427,140
+NT120186,Chikowa,Government,Health Centre,Functional,Ntcheu,-14.959023,34.720362,141
+BT240187,Chikowa,Government,Health Centre,Functional,Blantyre,-15.67133,34.87172,142
+LL040188,Chizu,Government,Health Centre,Functional,Lilongwe,-13.72929,33.45821,143
+DE030191,Chikuse,Government,Health Centre,Functional,Dedza,-14.15069,34.31881,146
+KA150192,Chikutu,Government,Health Post,Functional,Karonga,-9.774048,33.734621,147
+CK270193,Chikwawa,Government,District Hospital,Functional,Chikwawa,-16.0234699,34.79346,148
+MC190194,Chikweo,Government,Health Centre,Functional,Machinga,-14.7655,35.66691,149
+KB050195,Chikwina,Government,Health Centre,Functional,Nkhata Bay,-11.39694,34.16973,150
+BT240202,Chileka,Government,Health Centre,Functional,Blantyre,-15.682466,34.970663,155
+LL040203,Chileka,Government,Health Centre,Functional,Lilongwe,-14.02102,33.38544,156
+TH310205,Chilengo,Government,Dispensary,Functional,Thyolo,-16.136105,35.015899,158
+BT240207,Chirimba,Government,Health Centre,Functional,Blantyre,-15.746368,35.022984,159
+RU140208,Chilinda clinic,Government,Health Post,Functional,Rumphi,-10.59101,33.80605,160
+LL040209,Chilinde,Government,Clinic,Functional,Lilongwe,-13.99587,33.81026,161
+MG200211,Chilipa,Government,Health Centre,Functional,Mangochi,-14.6996,34.9732,162
+LL040214,Chilobwe,Government,Health Centre,Functional,Lilongwe,-13.85467,33.37439,165
+BT240216,Chilomoni,Government,Health Centre,Functional,Blantyre,-15.77128,34.98156,167
+MG200218,Chilonga,Government,Health Centre,Functional,Mangochi,-14.4672204,34.8711754,168
+KA150220,Chilumba Barracks,Government,Health Centre,Functional,Karonga,-10.39021,34.20897,170
+KA150221,Jetty,Government,Hospital,Functional,Karonga,-10.43199,34.25193,171
+TH310222,Chimaliro Health Centre,Government,Health Centre,Functional,Thyolo,-15.97706,35.18162,172
+BK170224,Chimatiro,Government,Dispensary,Functional,Balaka,-14.962681,35.023092,173
+LL040225,Chitekwere,Government,Health Centre,Functional,Lilongwe,-13.9358,34.12567,174
+MC190226,Chimbira,Government,Health Post,Functional,Machinga,-14.601369,35.805155,175
+BT240227,Chimembe,Government,Health Centre,Functional,Blantyre,-15.77733,34.88548,176
+DE030228,Chimoto,Government,Health Centre,Functional,Dedza,-14.44268,34.01021,177
+TH310230,Chimvu,Government,Health Centre,Functional,Thyolo,-15.94198,35.12308,178
+MC010232,Chimwankango,Government,Dispensary,Functional,Mchinji,-13.40461,32.99357,180
+NS300236,Ching'oma ,Government,Health Post,Functional,Nsanje,-16.999306,35.109333,183
+ZA230238,Chingale,Government,Health Centre,Functional,Zomba,-15.39694,35.1808,185
+NT080239,Chinguluwe,Government,Health Centre,Functional,Ntchisi,-13.2614988,33.868625,186
+SA090240,Chinguluwe,Government,Health Centre,Functional,Salima,-13.66454,34.38503,187
+ZA230241,Chinguma,Government,Health Post,Functional,Zomba,-15.230167,35.800284,188
+DA020243,Chinkhwiri,Government,Health Centre,Functional,Dowa,-13.38557,33.72106,190
+CP060245,Chinsasu,Government,Clinic,Functional,Chitipa,-9.68485,33.41856,191
+KB050246,Chintheche,Government,Hospital,Functional,Nkhata Bay,-11.82719,34.16836,192
+KU070248,Chinyama,Government,Health Centre,Functional,Kasungu,-12.974524,33.797009,194
+MU210249,Chinyama Health Centre,Government,Health Centre,Functional,Mulanje,-16.1565351,35.3409743,195
+MC010251,Chioshya,Government,Health Centre,Functional,Mchinji,-13.79586,33.17534,196
+SA090255,Chipoka,Government,Health Centre,Functional,Salima,-13.98973,34.51545,199
+MG200257,Chiponde,Government,Dispensary,Functional,Mangochi,-14.373385,35.60143,200
+MC010259,Chipumi,Government,Health Centre,Functional,Mchinji,-13.62519,33.08151,201
+CP060260,Chipwera,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,202
+CR260261,Chiradzulu District Hospital,Government,District Hospital,Functional,Chiradzulu,-15.7107196,35.1742529,203
+PH220263,Chiringa,Government,Clinic,Functional,Phalombe,-15.7724,35.769676,204
+KB050266,Chisala,Government,Health Centre,Functional,Nkhata Bay,-11.6064929,34.2540704,206
+CP060268,Chisenga,Government,Health Post,Functional,Chitipa,-9.974946,33.389664,208
+DA020269,chisepo,Government,Health Centre,Functional,Dowa,-13.63492,33.47017,209
+ZA230270,Chisi ,Government,Health Centre,Functional,Zomba,-1.0,1.0,210
+RU140271,Chisimuka,Government,Health Centre,Functional,Rumphi,-10.76924,33.55751,211
+KU070272,Chinsinga,Government,Health Centre,Functional,Kasungu,-12.622028,33.326917,212
+MU210273,Chisitu,Government,Health Centre,Functional,Mulanje,-16.0009921,35.4330321,213
+TH310274,Chisoka Health centre,Government,Health Centre,Functional,Thyolo,-15.94181,35.20879,214
+TH310278,Chisunga,Government,Health Post,Functional,Thyolo,-13.0,33.0,216
+MC190279,Chisuwi,Government,Health Post,Functional,Machinga,-14.968767,35.45754,217
+LL040282,Chitedze,Government,Health Centre,Functional,Lilongwe,-13.97684,33.64529,220
+PH220283,Chitekesa,Government,Health Centre,Functional,Phalombe,-15.5521738,35.611432,221
+CR260286,Chitera,Government,Health Centre,Functional,Chiradzulu,-15.60646,35.12306,223
+TH310289,chithebe dispensary,Government,Dispensary,Functional,Thyolo,-16.00218,35.01294,224
+KB050290,Chitheka,Government,Health Centre,Functional,Nkhata Bay,-11.6080989,34.3016984,225
+CK270291,Chithumba Health Centre,Government,Health Centre,Functional,Chikwawa,-15.80369,34.47629,226
+RU140292,Chitimba,Government,Health Centre,Functional,Rumphi,-10.59808,34.17026,227
+CP060293,Chitipa,Government,District Hospital,Functional,Chitipa,-9.70159,33.2659,228
+DE030294,Chitowo,Government,Health Centre,Functional,Dedza,-14.22584,34.03961,229
+MC190295,Chitundu,Government,Health Post,Functional,Machinga,-14.915042,35.650339,230
+MG200296,Chiumbangame,Government,Dispensary,Functional,Mangochi,-14.31739,35.55721,231
+MG200297,Chiunda,Government,Clinic,Functional,Mangochi,-14.7778842,35.4392003,232
+LL040298,Chiunjiza,Government,Health Centre,Functional,Lilongwe,-14.24322,33.4013,233
+LL040299,Chiwamba,Government,Health Centre,Functional,Lilongwe,-13.8571,33.92926,234
+CP060302,Chiweta,Government,Health Post,Functional,Chitipa,-9.646359,33.246835,237
+LL040303,Chiwoza,Government,Health Centre,Functional,Lilongwe,-14.13,33.72,238
+DA020306,Chizolowondo,Government,Health Centre,Functional,Dowa,-13.46336,33.51328,241
+MZ160308,Chololo,Government,Health Post,Functional,Mzimba,-11.014233,33.972657,243
+MZ160309,Choma,Government,Health Centre,Functional,Mzimba,-11.31318,33.99327,244
+MU210311,Chonde,Government,Hospital,Functional,Mulanje,-15.99708,35.32333,246
+DE030313,Chongoni,Government,Dispensary,Functional,Dedza,-14.31971,34.26677,247
+KU070314,Chulu,Government,Health Centre,Functional,Kasungu,-12.82192,33.30816,248
+ZA230317,Manicipality,Government,Clinic,Functional,Zomba,-15.39072,35.32416,250
+DE030334,Dedza District Hospital,Government,District Hospital,Functional,Dedza,-14.38596,34.33547,261
+LL040339,Diamphwe,Government,Health Centre,Functional,Lilongwe,-14.13232,34.08124,265
+LL040340,Dickson,Government,Health Centre,Functional,Lilongwe,-14.26626,33.65885,266
+CK270345,Dolo,Government,Health Centre,Functional,Chikwawa,-16.55349,34.92423,268
+ZA230346,Domasi College Clinic,Government,Dispensary,Functional,Zomba,-1.0,1.0,269
+ZA230347,Ginisi,Government,Hospital,Functional,Zomba,-15.28099,35.39935,270
+NT120349,Doviko,Government,Dispensary,Functional,Ntcheu,-15.0822,34.59094,271
+DA020350,Dowa DHO,Government,District Hospital,Functional,Dowa,-13.65432,33.93625,272
+NK100360,Dwambazi,Government,Hospital,Functional,Nkhotakota,-12.23405,33.99194,278
+KU070363,Dwangwa,Government,Dispensary,Functional,Kasungu,-12.88142,33.4537,281
+LL040365,Kapombeza,Government,Health Centre,Functional,Lilongwe,-14.24936,33.44469,282
+DA020366,Dzaleka,Government,Health Centre,Functional,Dowa,-13.66168,33.87042,283
+MU210367,Dzenje,Government,Health Centre,Functional,Mulanje,-16.1170073,35.4056002,284
+TH310369,DiDi,Government,Health Centre,Functional,Thyolo,-16.06096,34.98999,286
+TH310370,Dzimbiri Health Post,Government,Health Post,Functional,Thyolo,-16.10202,34.99722,287
+DE030371,Dzindevu,Government,Health Centre,Functional,Dedza,-14.20004,34.35998,288
+BT240373,Dziwe,Government,Health Centre,Functional,Blantyre,-15.56369,34.88038,289
+NT120374,Dzonzi Mvai,Government,Dispensary,Functional,Ntcheu,-14.94827,34.64306,290
+DA020375,Dzoole,Government,Health Centre,Functional,Dowa,-13.58537,33.66156,291
+NT120376,Dzunje,Government,Health Centre,Functional,Ntcheu,-14.80787,34.73608,292
+MZ160378,Edingeni,Government,Hospital,Functional,Mzimba,-12.04072,33.31295,294
+MZ160379,Ehehleni,Government,Dispensary,Functional,Mzimba,-12.2621,33.58912,295
+MZ160382,Ekwaiweni,Government,Dispensary,Functional,Mzimba,-11.42309,33.89766,297
+MZ160389,Emfeni,Government,Health Centre,Functional,Mzimba,-12.59406,33.60976,304
+MZ160390,Emsizini,Government,Health Centre,Functional,Mzimba,-11.44435,33.82485,305
+MZ160391,Endindeni,Government,Health Centre,Functional,Mzimba,-11.75818,33.5561,306
+MZ160392,Engucwini,Government,Health Centre,Functional,Mzimba,-11.19761,33.82314,307
+MZ160393,Enukweni,Government,Health Centre,Functional,Mzimba,-11.18005,33.88592,308
+MZ160397,Euthini,Government,Hospital,Functional,Mzimba,-11.4583127,33.4195575,311
+MC010407,Fanuel,Government,Dispensary,Functional,Mchinji,-13.304354,33.036303,317
+KA150413,Fulirwa,Government,Health Centre,Functional,Karonga,-10.44772,34.11211,322
+CK270414,Gaga,Government,Health Centre,Functional,Chikwawa,-15.80678,34.36487,323
+BT240417,Gateway Dispensary,Government,Dispensary,Functional,Blantyre,-15.804572,35.017828,325
+KU070428,Gogode,Government,Dispensary,Functional,Kasungu,-12.88773,33.56134,332
+CK270429,Gola,Government,Health Centre,Functional,Chikwawa,-15.883962,34.299339,333
+DE030430,Golomoti,Government,Health Centre,Functional,Dedza,-14.41303,34.60092,334
+TH310431,Gombe,Government,Health Centre,Functional,Thyolo,-16.37,35.23,335
+KA150432,Kasangamale,Government,Health Post,Functional,Karonga,-10.402957,34.134781,336
+TH310436,Gotha Estate Clinic,Government,Clinic,Functional,Thyolo,-15.77213,35.76965,339
+MZ160438,Gowoka,Government,Health Post,Functional,Mzimba,-11.518401,33.626397,341
+MC010441,Gumba,Government,Dispensary,Functional,Mchinji,-13.42125,33.11137,342
+KA150446,Bundi,Government,Dispensary,Functional,Karonga,-10.48876,34.16939,345
+MZ160452,Hoho,Government,Health Centre,Functional,Mzimba,-12.27815,33.6864,349
+CK270459,Hunger Clinic,Government,Health Centre,Functional,Chikwawa,-16.27045,34.86368,353
+MG200460,Iba dispensery,Government,Clinic,Functional,Mangochi,-14.2427791,35.3944457,354
+CP060461,Ifumbo,Government,Health Centre,Functional,Chitipa,-9.60436,33.40495,355
+CP060462,Ighughu,Government,Health Post,Functional,Chitipa,-9.673396,33.496793,356
+KA150465,Iponga,Government,Health Centre,Functional,Karonga,-9.6462311,33.8126995,357
+MG200469,Jalasi,Government,Clinic,Functional,Mangochi,-14.3628546,35.4426129,359
+RU140470,Jalawe,Government,Health Centre,Functional,Rumphi,-10.73052,34.16172,360
+MZ160471,Jenda,Government,Health Centre,Functional,Mzimba,-12.35206,33.54755,361
+LL040479,Kabudula,Government,Hospital,Functional,Lilongwe,-13.81972,33.44838,365
+MZ160480,Kabuwa,Government,Health Centre,Functional,Mzimba,-12.51726,34.07395,366
+MZ160481,Kabwafu,Government,Health Centre,Functional,Mzimba,-11.30869,33.52556,367
+KB050484,Kachere,Government,Health Centre,Functional,Nkhata Bay,-11.606664,34.2536593,369
+DE030487,Kachindamoto,Government,Health Post,Functional,Dedza,-14.2143955,34.5529965,371
+MG200488,Kadango,Government,Clinic,Functional,Mangochi,-14.060711,35.186208,372
+BT240490,Kadidi,Government,Health Centre,Functional,Blantyre,-15.66083,35.02212,373
+DE030491,Kafere,Government,Health Centre,Functional,Dedza,-14.43168,33.71746,374
+MZ160493,Kafukule,Government,Health Centre,Functional,Mzimba,-11.4575,33.63395,375
+MC010494,Kaigwazanga,Government,Health Centre,Functional,Mchinji,-13.62678,32.92836,376
+CK270495,Kakoma,Government,Health Centre,Functional,Chikwawa,-16.09819,34.62398,377
+BK170497,Kalembo,Government,Health Centre,Functional,Balaka,-14.84268,35.17081,379
+NT120500,Kalimanjira,Government,Health Centre,Functional,Ntcheu,-14.866774,34.90896,382
+PH220502,Kalinde,Government,Health Centre,Functional,Phalombe,-15.67212,35.728338,383
+CP060503,Near Kalira school,Government,Health Post,Functional,Chitipa,-9.575143,33.312223,384
+DE030507,Kalulu,Government,Health Centre,Functional,Dedza,-13.99695,34.19753,386
+KU070509,Kaluluma,Government,Hospital,Functional,Kasungu,-12.57759,33.51859,387
+MZ160511,Kamanda,Government,Health Post,Functional,Mzimba,-11.149343,34.032283,388
+MU210515,Kambenje,Government,Health Centre,Functional,Mulanje,-15.85308,35.56394,391
+KU070518,Kamboni,Government,Health Centre,Functional,Kasungu,-13.30759,33.18189,392
+CP060519,Kameme,Government,Health Centre,Functional,Chitipa,-9.54425,33.13134,393
+NT120521,Kampanje,Government,Health Centre,Functional,Ntcheu,-14.59947,34.58684,394
+NS300522,Kamphata,Government,Health Post,Functional,Nsanje,-17.0468,35.21658,395
+LL040523,Kamphoni,Government,Health Post,Functional,Lilongwe,-14.31496,33.634283,396
+NT080525,Kamsonga,Government,Health Centre,Functional,Ntchisi,-13.2745621,33.7993437,397
+MZ160526,Kamteteka,Government,Health Centre,Functional,Mzimba,-11.83649,33.35892,398
+LL040528,Kamuzu Barracks,Government,Hospital,Functional,Lilongwe,-13.98131,33.82105,399
+LL040529,Central,Government,Central Hospital,Functional,Lilongwe,-13.97639,33.78512,400
+MZ160530,Kamwe,Government,Health Centre,Functional,Mzimba,-11.10265,33.78911,401
+MU210531,Kamwendo,Government,Health Post,Functional,Mulanje,-15.674962,35.476907,402
+DE030532,Mdeza,Government,Dispensary,Functional,Dedza,-13.487476,33.92326,403
+KB050533,Kande,Government,Health Centre,Functional,Nkhata Bay,-11.93641,34.10944,404
+NT120534,Kandeu,Government,Health Centre,Functional,Ntcheu,-14.60262,34.61621,405
+LL040536,Kang'oma,Government,Health Centre,Functional,Lilongwe,-13.97817,33.88219,406
+NT080537,Songeya,Government,Health Centre,Functional,Ntchisi,-13.37046,34.07048,407
+BT240540,Kanjeza Police dispensary,Government,Dispensary,Functional,Blantyre,-15.815721,35.048525,409
+CP060543,Kanyenjere,Government,Health Post,Functional,Chitipa,-9.762793,33.417264,412
+DE030546,Kanyezi,Government,Health Centre,Functional,Dedza,-14.31391,33.95303,413
+NS300548,Kanyimbi,Government,Health Post,Functional,Nsanje,-16.69453,34.967,415
+NK100550,Kaongozi,Government,Dispensary,Functional,Nkhotakota,-12.43665,34.04998,416
+MC010551,Kapanga,Government,Health Centre,Functional,Mchinji,-14.05997,33.30626,417
+MZ160552,Kapangamawe,Government,Health Post,Functional,Mzimba,-11.449527,33.680755,418
+KU070553,Kapelula,Government,Health Centre,Functional,Kasungu,-12.87767,33.87086,419
+CP060554,Kapenda,Government,Health Centre,Functional,Chitipa,-9.49394,33.24911,420
+NT120557,Kapeni,Government,Clinic,Functional,Ntcheu,-15.00511,34.77059,422
+DE030560,Kaphuka,Government,Health Centre,Functional,Dedza,-14.16013,34.19001,424
+KA150566,Kibwe,Government,Hospital,Functional,Karonga,-9.76756,33.87466,429
+DA020567,kaputalambwe,Government,Health Post,Functional,Dowa,-13.7653091,33.898449,430
+KU070568,Kapyanga,Government,Health Centre,Functional,Kasungu,-12.82384,33.78842,431
+KA150570,Chaboma,Government,District Hospital,Functional,Karonga,-9.95545,33.91113,433
+CP060571,Karopa,Government,Health Post,Functional,Chitipa,-10.216613,33.650444,434
+KU070572,Kasalika,Government,Health Centre,Functional,Kasungu,-13.03985,33.49866,435
+NT120581,Kasinje,Government,Health Centre,Functional,Ntcheu,-14.52315,34.67642,442
+KA150585,Kasoba,Government,Health Centre,Functional,Karonga,-9.87355,33.86972,444
+KU070588,Kasungu,Government,District Hospital,Functional,Kasungu,-13.03579,33.48041,446
+LL040593,Katchale,Government,Health Centre,Functional,Lilongwe,-14.2836,33.90782,448
+NK100597,Katimbira,Government,Health Centre,Functional,Nkhotakota,-12.7571482,34.2177405,451
+KA150598,Katiri,Government,Dispensary,Functional,Karonga,-10.0693605,33.8813089,452
+MC010599,Katope,Government,Health Post,Functional,Mchinji,-11.074251,34.007405,453
+RU140600,Katowo,Government,Hospital,Functional,Rumphi,-10.81278,33.52222,454
+NT120601,Katsekera,Government,Health Centre,Functional,Ntcheu,-15.03336,34.64072,455
+MG200602,Katuli,Government,Health Centre,Functional,Mangochi,-14.17962,35.44476,456
+LL040610,Kawale,Government,Health Centre,Functional,Lilongwe,-13.99175,33.79757,460
+KU070612,Kawamba,Government,Health Centre,Functional,Kasungu,-13.29575,33.3393,461
+MZ160613,Kaweche,Government,Health Centre,Functional,Mzimba,-11.340511,33.8662969,462
+MC190614,Nanyumbu,Government,Dispensary,Functional,Machinga,-14.85468,35.57198,463
+KA150615,Kayelekela,Government,Dispensary,Functional,Karonga,-9.970284,33.688526,464
+DA020616,Kayembe,Government,Health Centre,Functional,Dowa,-13.64256,33.58301,465
+MC010618,Kazyozyo,Government,Health Centre,Functional,Mchinji,-13.57544,32.86387,466
+KU070625,Khola,Government,Health Centre,Functional,Kasungu,-13.34447,33.31649,468
+SA090626,Khombedza,Government,Health Centre,Functional,Salima,-13.59695,34.31111,469
+KB050627,Nkondowe,Government,Health Centre,Functional,Nkhata Bay,-11.07281,34.21939,470
+LL040629,Khongoni,Government,Health Centre,Functional,Lilongwe,-13.77451,33.36761,471
+TH310631,Khonjeni health centre,Government,Health Centre,Functional,Thyolo,-16.09692,35.27129,472
+MZ160632,Khosolo,Government,Health Centre,Functional,Mzimba,-12.4402,33.79133,473
+NT080634,Iwawe,Government,Health Centre,Functional,Ntchisi,-13.43192,33.83367,475
+MC010637,Kochilira,Government,Hospital,Functional,Mchinji,-13.78239,33.04385,477
+CP060638,Kopakopa,Government,Health Post,Functional,Chitipa,-10.138347,33.702798,478
+MG200642,Kukalanga,Government,Clinic,Functional,Mangochi,-14.6373449,35.1800722,481
+MW280646,Kunenekude,Government,Health Centre,Functional,Mwanza,-15.46467,34.49142,482
+ZA230653,Chilombo,Government,Health Centre,Functional,Zomba,-15.4841,35.337,487
+LL040655,Lemwe health center,Government,Health Centre,Functional,Lilongwe,-13.89,33.34,488
+SA090663,Lifuwu,Government,Health Centre,Functional,Salima,-13.67915,34.58878,491
+NE290665,ligowe health centre,Government,Health Centre,Functional,Neno,-15.47368,34.65182,493
+ZA230667,Likangala,Government,Health Centre,Functional,Zomba,-15.42787,35.54461,494
+MC190668,Likhonyowa,Government,Health Post,Functional,Machinga,-14.959359,35.790527,495
+BT240678,Limbe,Government,Clinic,Functional,Blantyre,-15.816967,35.051775,500
+KU070696,Linyagwa Health Centre,Government,Health Centre,Functional,Kasungu,-13.14379,33.3005,512
+BT240698,Lilangwe,Government,Health Centre,Functional,Blantyre,-15.52963,35.02973,513
+NE290700,Lisungwi Community Hospital,Government,Hospital,Functional,Neno,-15.3954489,34.6531105,514
+KB050701,Liuzi,Government,Health Centre,Functional,Nkhata Bay,-12.18971,34.01572,515
+KU070703,Livwezi,Government,Health Centre,Functional,Kasungu,-12.893461,33.678996,517
+NT120707,Lizulu,Government,Health Centre,Functional,Ntcheu,-14.51775,34.46547,520
+DE030708,Lobi,Government,Health Centre,Functional,Dedza,-14.39034,34.07182,521
+KU070709,Lodjwa,Government,Dispensary,Functional,Kasungu,-12.41898,33.52947,522
+LL040719,Chinkhuti,Government,Health Centre,Functional,Lilongwe,-13.77074,33.80477,529
+BT240723,Lundu,Government,Health Centre,Functional,Blantyre,-15.42185,35.01294,531
+ZA230724,Lungazi,Government,Health Post,Functional,Zomba,-15.418725,35.846034,532
+MG200726,Lungwena,Government,Health Centre,Functional,Mangochi,-14.24501,35.24804,534
+NK100728,Lupachi,Government,Health Post,Functional,Nkhotakota,-12.318585,33.779585,536
+KA150729,Lupaso,Government,Health Post,Functional,Karonga,-9.930017,33.853121,537
+KA150730,Lupembe,Government,Health Centre,Functional,Karonga,-10.4889233,34.16902,538
+RU140731,Dukuduku,Government,Health Centre,Functional,Rumphi,-10.72638,34.04408,539
+MZ160735,Luviri,Government,Health Post,Functional,Mzimba,-12.2033,33.665772,542
+MZ160736,Luvwere,Government,Dispensary,Functional,Mzimba,-11.3889883,33.6728017,543
+NE290738,Luwani Health Centre,Government,Health Centre,Functional,Neno,-15.3955218,34.6531907,545
+MZ160740,Luwawa,Government,Health Centre,Functional,Mzimba,-12.11337,33.71943,547
+MZ160741,LUWEREZI,Government,Health Centre,Functional,Mzimba,-12.48825,33.64119,548
+MZ160743,Luzi Near M1 Road,Government,Health Centre,Functional,Mzimba,-10.99681,33.95583,550
+KB050744,Lwazi Health Centre,Government,Health Centre,Functional,Nkhata Bay,-11.51864,34.15115,551
+KA150745,Lwezga,Government,Health Centre,Functional,Karonga,-9.9548558,33.9116481,552
+ZA230747,M'mambo,Government,Health Centre,Functional,Zomba,-15.26264,35.15945,553
+NT120751,Matchereza,Government,Health Post,Functional,Ntcheu,-15.20665,34.84761,555
+MC190752,ku District,Government,District Hospital,Functional,Machinga,-15.06229,35.2263,556
+MC190753,Machinga Boma,Government,Health Centre,Functional,Machinga,-15.1773,35.29565,557
+ZA230755,Joyce Banda,Government,Health Centre,Functional,Zomba,-15.23666,35.41707,558
+MZ160765,Madede,Government,Health Centre,Functional,Mzimba,-11.53894,33.29456,564
+MZ160768,Madise,Government,Health Post,Functional,Mzimba,-11.263586,33.780672,566
+BT240770,Madziabango,Government,Health Centre,Functional,Blantyre,-15.9678,34.90825,568
+ZA230771,Maera,Government,Health Centre,Functional,Zomba,-15.50987,35.1315,569
+SA090773,MAFCO,Government,Health Centre,Functional,Salima,-13.78419,34.60338,570
+NE290776,Magaleta,Government,Health Centre,Functional,Neno,-15.3951395,34.6539354,571
+SA090778,Maganga,Government,Health Centre,Functional,Salima,-13.84681,34.5591,573
+TH310780,Mangunda,Government,Health Centre,Functional,Thyolo,-16.02884,35.26166,575
+CP060781,Mahowe,Government,Health Centre,Functional,Chitipa,-10.183192,33.690349,576
+MG200786,Makanjira,Government,Health Centre,Functional,Mangochi,-13.7152548,35.0473141,577
+BT240788,Makata,Government,Health Centre,Functional,Blantyre,-15.62996,35.07964,579
+NS300789,Makhanga,Government,Health Centre,Functional,Nsanje,-16.33721,35.09671,580
+BT240790,Makhetha health centre,Government,Health Centre,Functional,Blantyre,-15.62996,35.07964,581
+CK270791,Makhwira,Government,Health Centre,Functional,Chikwawa,-16.19483,35.01065,582
+SA090792,Makiyoni,Government,Health Centre,Functional,Salima,-13.58599,34.197,583
+TH310794,Makungwa,Government,Health Centre,Functional,Thyolo,-15.901417,34.9625479,585
+ZA230795,Mwakwapala,Government,Health Centre,Functional,Zomba,-15.36938,35.4506,586
+CR260804,Malavi,Government,Dispensary,Functional,Chiradzulu,-15.83686,35.14867,593
+BT240806,Polytechnic,Government,Clinic,Functional,Blantyre,-15.80207,35.02718,594
+LL040809,Malembo health centre,Government,Health Centre,Functional,Lilongwe,-13.62006,33.41507,596
+MG200810,Maleta,Government,Health Post,Functional,Mangochi,-13.92942,35.26355,597
+MZ160812,Malidade,Government,Health Centre,Functional,Mzimba,-11.22926,33.49989,598
+NT080818,Malomo,Government,Health Centre,Functional,Ntchisi,-13.14861,33.83927,603
+NK100819,Malowa,Government,Health Centre,Functional,Nkhotakota,-13.1816,34.25165,604
+MG200820,Malukula,Government,Health Centre,Functional,Mangochi,-14.4435236,35.3559647,605
+KA150821,Malungo,Government,Health Post,Functional,Karonga,-9.886358,33.905859,606
+LL040822,Maluwa,Government,Health Centre,Functional,Lilongwe,-14.26287,33.87364,607
+MC190827,Mangamba,Government,Health Centre,Functional,Machinga,-14.79145,35.43652,610
+MG200829,Mangochi district hospital,Government,District Hospital,Functional,Mangochi,-14.4817417,35.2645629,611
+CK270830,Mangulenje Health Centre,Government,Health Centre,Functional,Chikwawa,-16.10534,34.9157,612
+NT120831,Manjawira,Government,Health Centre,Functional,Ntcheu,-15.00254,34.85709,613
+MZ160833,Kalanga,Government,Health Centre,Functional,Mzimba,-11.2279004,33.4584974,614
+MZ160834,Manyamula,Government,Health Centre,Functional,Mzimba,-11.94005,33.43945,615
+DE030836,Maonde,Government,Health Centre,Functional,Dedza,-14.4057,34.11592,617
+CK270840,Maperera,Government,Health Centre,Functional,Chikwawa,-16.10534,34.9157,619
+NT120844,Masasa,Government,Clinic,Functional,Ntcheu,-14.4334,34.42243,621
+NS300846,Masenjere,Government,Health Centre,Functional,Nsanje,-16.33721,35.09671,623
+LL040855,Matapira,Government,Health Centre,Functional,Lilongwe,-14.01108,33.97509,631
+ZA230856,Matawale,Government,Health Centre,Functional,Zomba,-15.39029,35.35958,632
+DA020858,Matekenya,Government,Health Centre,Functional,Dowa,-13.564647,34.047714,633
+MZ160863,Matuli,Government,Health Centre,Functional,Mzimba,-11.48513,33.89613,637
+KB050865,Kambuni,Government,Health Centre,Functional,Nkhata Bay,-11.73518,34.23514,639
+LL040866,Maula Prison,Government,Clinic,Functional,Lilongwe,-13.97,33.77,640
+CR260867,Mauwa,Government,Health Centre,Functional,Chiradzulu,-15.65283,35.2498,641
+DE030869,Mayani,Government,Health Centre,Functional,Dedza,-14.09697,34.24281,643
+LL040872,Mbabvi,Government,Health Centre,Functional,Lilongwe,-13.92808,33.67087,645
+MZ160873,Mbalachanda,Government,Health Centre,Functional,Mzimba,-11.35738,33.37133,646
+LL040877,Mbang'ombe 2,Government,Health Centre,Functional,Lilongwe,-14.16945,33.37942,647
+LL040878,Mbang'ombe 1,Government,Health Centre,Functional,Lilongwe,-13.73673,33.71382,648
+MC190879,Mbanira,Government,Health Post,Functional,Machinga,-14.975262,35.598659,649
+BT240881,Mbayani health Centre,Government,Clinic,Functional,Blantyre,-15.775577,35.000875,651
+NS300883,Mbenje,Government,Health Centre,Functional,Nsanje,-16.99464,35.22079,653
+BK170884,Mbera,Government,Health Centre,Functional,Balaka,-14.91088,35.05326,654
+DA020885,Mbingwa,Government,Health Centre,Functional,Dowa,-13.54425,33.51485,655
+MU210886,kwaMbiza,Government,Health Centre,Functional,Mulanje,-16.0928127,35.3461829,656
+MC190888,Mbonechera,Government,Dispensary,Functional,Machinga,-14.88932,35.47818,658
+CR260889,Mbulumbuzi,Government,Health Centre,Functional,Chiradzulu,-15.63834,35.15687,659
+NS300893,Mchacha James,Government,Health Post,Functional,Nsanje,-16.76255,35.04739,661
+CP060897,Mchina,Government,Health Post,Functional,Chitipa,-10.309487,33.711544,663
+MC010898,Mchinji,Government,District Hospital,Functional,Mchinji,-13.80273,32.88716,664
+SA090899,Mchoka,Government,Health Centre,Functional,Salima,-13.92593,34.48984,665
+BT240900,Mdeka,Government,Health Centre,Functional,Blantyre,-15.46769,34.94236,666
+DE030901,Mdeza,Government,Clinic,Functional,Dedza,-14.2351461,33.967781,667
+KU070902,Mdunga,Government,Health Centre,Functional,Kasungu,-12.9931,33.8519,668
+CK270909,Mfera,Government,Health Centre,Functional,Chikwawa,-16.06818,34.86724,671
+DE030910,Mganja,Government,Health Centre,Functional,Dedza,-14.42048,34.52305,672
+MZ160911,Mgoza,Government,Health Post,Functional,Mzimba,-12.67329,33.831326,673
+RU140914,Mhuju Rural Hospital,Government,Hospital,Functional,Rumphi,-10.86685,33.99765,675
+PH220920,Migowi,Government,Health Centre,Functional,Phalombe,-15.71922,35.68542,678
+TH310922,Mikolongwe,Government,Health Centre,Functional,Thyolo,-15.90149,35.18367,679
+MC010925,Mikundi Health Centre,Government,Health Centre,Functional,Mchinji,-13.70751,33.13821,681
+ZA230926,Mikuyu,Government,Clinic,Functional,Zomba,-15.41764,35.41968,682
+ZA230927,Mikuyu Adult Clinic,Government,Dispensary,Functional,Zomba,-1.0,2.0,683
+ZA230928,Mikuyu Young Clinic,Government,Dispensary,Functional,Zomba,-1.0,3.0,684
+CR260929,Milepa,Government,Health Centre,Functional,Chiradzulu,-15.68713,35.31818,685
+MU210930,Milonde,Government,Health Centre,Functional,Mulanje,-16.1024462,35.4782637,686
+MU210931,Mimosa,Government,Dispensary,Functional,Mulanje,-16.08574,35.61263,687
+LL040932,Ming'ongo,Government,Health Centre,Functional,Lilongwe,-14.07479,33.44838,688
+NS300936,Bwangu,Government,Health Post,Functional,Nsanje,-16.76255,35.04739,689
+CP060941,Misuku,Government,Health Centre,Functional,Chitipa,-9.67977,33.52076,692
+LL040945,Mitundu,Government,Hospital,Functional,Lilongwe,-14.24776,33.77465,695
+DE030946,Mjini,Government,Health Centre,Functional,Dedza,-14.044388,34.238785,696
+MC010947,Mkanda,Government,Health Centre,Functional,Mchinji,-13.5146,32.96085,697
+KU070950,Mkhota,Government,Health Centre,Functional,Kasungu,-13.56651,33.34348,698
+NT080951,Mkhuzi,Government,Health Centre,Functional,Ntchisi,-13.3665599,33.7767254,699
+PH220952,Mkhwayi,Government,Health Centre,Functional,Phalombe,-15.61457,35.62787,700
+MZ160954,Mkoma,Government,Health Centre,Functional,Mzimba,-12.61235,33.7824,702
+MU210956,Nkomaula health centre,Government,Health Centre,Functional,Mulanje,-15.7211,35.36672,703
+MC190959,Mkwepere,Government,Health Centre,Functional,Machinga,-14.60286,35.63635,705
+LL040960,Mkwinda,Government,Health Post,Functional,Lilongwe,-14.177537,33.748205,706
+DE030964,Mlangali,Government,Health Centre,Functional,Dedza,-14.41322,34.27274,710
+NT120965,Mlangeni,Government,Clinic,Functional,Ntcheu,-14.67662,34.53672,711
+KA150966,Mlare,Government,Health Centre,Functional,Karonga,-10.173157,34.0358777,712
+CP060967,Mulembe,Government,Health Centre,Functional,Chitipa,-10.061782,33.377912,713
+NS300970,Mlolo,Government,Health Post,Functional,Nsanje,-16.41959,35.1525,715
+MC190971,Mlomba,Government,Dispensary,Functional,Machinga,-15.01903,35.47708,716
+NT080974,Mndinda,Government,Health Centre,Functional,Ntchisi,-13.2474,34.05675,719
+LL040975,Ngwangwa,Government,Health Post,Functional,Lilongwe,-13.842277,33.684124,720
+KU070976,Mnyanja,Government,Health Centre,Functional,Kasungu,-12.722316,33.485857,721
+MC190979,Molipa,Government,Health Post,Functional,Machinga,-15.051421,35.390936,723
+DA020980,Mondwe,Government,Health Post,Functional,Dowa,-13.49199,33.443872,724
+MG200982,Monkey bay Community Hospital,Government,Hospital,Functional,Mangochi,-14.0846593,34.9107539,726
+MZ160986,Moyale,Government,Health Centre,Functional,Mzimba,-11.4597562,34.0383107,727
+MU210989,kwa Gunde,Government,Health Centre,Functional,Mulanje,-16.1439048,35.5250625,729
+NK100991,Mpamantha,Government,Health Centre,Functional,Nkhotakota,-13.06926,34.25224,731
+KB050992,Mpamba,Government,Health Centre,Functional,Nkhata Bay,-11.54697,34.19727,732
+PH220993,Mpasa,Government,Health Centre,Functional,Phalombe,-15.7578844,35.611432,733
+KU070994,Mpasadzi,Government,Health Centre,Functional,Kasungu,-12.583194,33.381861,734
+KA150995,Mpata,Government,Health Centre,Functional,Karonga,-9.96062,33.81525,735
+CP060997,Mpemba,Government,Health Post,Functional,Chitipa,-10.134558,33.521683,736
+BT240998,Mpemba,Government,Health Centre,Functional,Blantyre,-15.87385,34.9523,737
+DE031001,Mphathi,Government,Health Centre,Functional,Dedza,-14.45516,34.07683,738
+NT121003,Mphepozinayi,Government,Dispensary,Functional,Ntcheu,-14.73586,34.66115,739
+MZ161004,Mpherembe,Government,Health Centre,Functional,Mzimba,-11.28806,33.61431,740
+MZ161006,Mphofwa,Government,Health Post,Functional,Mzimba,-11.680054,33.620114,741
+RU141007,Mphompha,Government,Health Centre,Functional,Rumphi,-11.00662,34.07305,742
+BT241009,Mpingo Maternity,Government,Health Centre,Functional,Blantyre,-15.0,33.0,744
+DA021013,Mponela,Government,Hospital,Functional,Dowa,-13.53264,33.73713,746
+DA021015,Msakambewa,Government,Health Centre,Functional,Dowa,-13.55296,33.89719,748
+NK101018,Msenjere,Government,Health Centre,Functional,Nkhotakota,-12.7324996,34.1705763,750
+MZ161019,Msese,Government,Health Centre,Functional,Mzimba,-12.36,33.74,751
+DE031023,Mtakataka,Government,Health Centre,Functional,Dedza,-14.22745,34.51474,754
+MZ161029,Mtende,Government,Health Centre,Functional,Mzimba,-11.49724,33.54894,755
+LL041034,Mtenthela,Government,Health Centre,Functional,Lilongwe,-14.10884,34.00567,758
+MG201036,Mtimabi,Government,Health Centre,Functional,Mangochi,-14.6110653,35.0826738,760
+NK101038,Mtosa,Government,Health Centre,Functional,Nkhotakota,-13.43876,34.27365,762
+MZ161040,Mtwalo,Government,Health Centre,Functional,Mzimba,-11.39671,33.74591,764
+MU211045,Mulanje Hospital,Government,Hospital,Functional,Mulanje,-16.02549,35.50785,767
+MU211048,Mulomba,Government,Health Centre,Functional,Mulanje,-15.76535,35.51182,770
+MU211049,Muloza,Government,Health Centre,Functional,Mulanje,-16.08016,35.71573,771
+DA021060,Mvera Army,Government,Health Centre,Functional,Dowa,-13.77963,34.1398,778
+CK271071,Mwanawanjovu,Government,Clinic,Functional,Chikwawa,-16.515473,35.029718,786
+ZA231073,Mwandama,Government,Health Centre,Functional,Zomba,-15.49803,35.18803,787
+DA021075,Mwangala,Government,Health Centre,Functional,Dowa,-13.487476,33.92326,789
+NK101077,Mwasambo,Government,Health Centre,Functional,Nkhotakota,-13.3066933,34.118526,790
+MW281081,Mwanza District Hospital,Government,District Hospital,Functional,Mwanza,-15.59118,34.50998,793
+MG201083,Chiunda Clinic,Government,Health Post,Functional,Mangochi,-14.755091,35.112111,794
+KB051085,Mwaya,Government,Dispensary,Functional,Nkhata Bay,-11.97658,34.07603,795
+RU141087,mwazisi,Government,Health Centre,Functional,Rumphi,-10.94356,33.5792,796
+BK171089,Mwima,Government,Health Post,Functional,Balaka,-14.92967,35.18498,797
+MZ161090,Mzalangwe,Government,Health Centre,Functional,Mzimba,-11.61228,33.5651,798
+NT081093,Mzandu,Government,Health Centre,Functional,Ntchisi,-13.48916,34.02738,801
+KB051094,Mzenga,Government,Health Centre,Functional,Nkhata Bay,-11.73249,34.07401,802
+MZ161095,Ku Boma,Government,District Hospital,Functional,Mzimba,-11.89805,33.58421,803
+RU141097,Mzokoto,Government,Health Centre,Functional,Rumphi,-10.90777,34.02735,804
+MZ161098,Central,Government,Central Hospital,Functional,Mzimba,-11.4235559,33.9943344,805
+MZ161099,Prison,Government,Clinic,Functional,Mzimba,-11.46474,34.01991,806
+MZ161100,Mapale,Government,Health Centre,Functional,Mzimba,-11.4617887,34.0151188,807
+MZ161101,Police,Government,Dispensary,Functional,Mzimba,-11.46211,34.02489,808
+CP061104,Naching'anda,Government,Health Post,Functional,Chitipa,-9.684917,33.418491,810
+CP061105,Nachipananga off Nthalire road to the west,Government,Health Post,Functional,Chitipa,-9.872516,33.381377,811
+ZA231106,Chopi,Government,Health Centre,Functional,Zomba,-15.35785,35.3849,812
+DA021108,Nalunga,Government,Health Centre,Functional,Dowa,-13.64378,34.0567,814
+ZA231109,Namadidi,Government,Health Centre,Functional,Zomba,-15.41079,35.24736,815
+CR261110,Namadzi,Government,Health Centre,Functional,Chiradzulu,-15.54663,35.18761,816
+MC191116,Namanja,Government,Health Centre,Functional,Machinga,-14.9646301,35.6793543,820
+BK171117,Namanolo,Government,Health Centre,Functional,Balaka,-15.00071,35.19004,821
+ZA231119,Namasalima,Government,Health Centre,Functional,Zomba,-15.23142,35.48876,823
+PH221120,Nambazo,Government,Health Centre,Functional,Phalombe,-15.5566963,35.8193749,824
+BK171121,Nambira health post,Government,Health Post,Functional,Balaka,-14.80259,35.06411,825
+PH221122,Nambiti,Government,Health Post,Functional,Phalombe,-15.802794,35.763953,826
+BK171125,Nandumbo,Government,Health Centre,Functional,Balaka,-14.85169,35.22552,829
+BT241127,Namikoko,Government,Health Centre,Functional,Blantyre,-15.48651,35.07379,831
+CR261130,Namitambo,Government,Health Centre,Functional,Chiradzulu,-15.7106126,35.1741967,833
+MC011131,Namizana,Government,Dispensary,Functional,Mchinji,-14.00195,33.2463,834
+MU211132,Namphungo,Government,Health Centre,Functional,Mulanje,-15.80407,35.3491,835
+MG201134,Namwera,Government,Hospital,Functional,Mangochi,-14.3637,35.50221,837
+MG201136,Namcholi,Government,Dispensary,Functional,Mangochi,-14.4783763,35.5870485,838
+MG201137,Nangalamu,Government,Health Centre,Functional,Mangochi,-14.6110653,35.0826738,839
+MG201138,Nankhwali,Government,Health Centre,Functional,Mangochi,-15.614421,35.6281461,840
+MG201139,Nankumba,Government,Health Centre,Functional,Mangochi,-14.36521,34.82361,841
+ZA231140,Nasawa,Government,Health Centre,Functional,Zomba,-15.6023,35.25956,842
+MU211143,Naphimba Health Centre,Government,Health Centre,Functional,Mulanje,-16.045639,35.445462,843
+LL041146,Nàthenje,Government,Health Centre,Functional,Lilongwe,-14.08504,33.90823,845
+MC191148,Nayinunje,Government,Health Centre,Functional,Machinga,-14.7406,35.56503,847
+MC191149,Nayuchi,Government,Health Centre,Functional,Machinga,-14.97585,35.86726,848
+PH221150,Gogo Nazombe,Government,Health Centre,Functional,Phalombe,-15.7525616,35.7777647,849
+CK271152,ndakwera health centre,Government,Health Centre,Functional,Chikwawa,-16.22357,34.68896,850
+NS301153,Ndamera,Government,Health Centre,Functional,Nsanje,-17.09569,35.21902,851
+LL041155,Ndaula,Government,Health Centre,Functional,Lilongwe,-14.1385,33.50757,853
+BT241158,Ndirande,Government,Health Centre,Functional,Blantyre,-15.7781,35.03946,856
+CR261159,Ndunde,Government,Health Centre,Functional,Chiradzulu,-15.69615,35.23355,857
+NE291160,Neno District Hospital,Government,District Hospital,Functional,Neno,-15.39524,34.65349,858
+LL041162,new State house,Government,Unclassified,Functional,Lilongwe,-13.96051,33.85089,860
+RU141165,Ng'onga,Government,Health Centre,Functional,Rumphi,-10.93922,33.94348,861
+CK271167,Ngabu,Government,Hospital,Functional,Chikwawa,-16.45928,34.89253,862
+NK101169,Ngala,Government,Health Centre,Functional,Nkhotakota,-12.36529,34.06552,864
+MG201170,Ngatala,Government,Health Post,Functional,Mangochi,-14.65773,35.07712,865
+KA151171,Ngana,Government,Health Centre,Functional,Karonga,-9.62021,33.69891,866
+KA151173,Ngara,Government,Health Post,Functional,Karonga,-10.225176,34.10207,867
+MG201174,Ngatala,Government,Health Post,Functional,Mangochi,-14.657656,35.077156,868
+KA151175,Ngisi,Government,Clinic,Functional,Karonga,-9.595399,33.7218983,869
+MC191177,Ngokwe,Government,Health Centre,Functional,Machinga,-14.7067782,35.8015545,871
+LL041179,Chidalanda,Government,Health Centre,Functional,Lilongwe,-13.77509,33.64018,873
+ZA231180,Ngotangota,Government,Health Post,Functional,Zomba,-15.295999,35.82282,874
+ZA231182,Ngwelero,Government,Clinic,Functional,Zomba,-15.66645,35.42718,875
+MZ161187,Njuyu,Government,Health Centre,Functional,Mzimba,-11.52455,33.69953,876
+CR261188,Nkalo,Government,Health Centre,Functional,Chiradzulu,-15.97065,35.30997,877
+NS301192,Nkhande,Government,Dispensary,Functional,Nsanje,-17.11489,35.15688,881
+KB051193,Mkondezi,Government,District Hospital,Functional,Nkhata Bay,-11.60159,34.29872,882
+TH311195,Nkhataombere,Government,Health Post,Functional,Thyolo,-16.323986,35.264013,884
+RU141199,Nkhomboli,Government,Health Post,Functional,Rumphi,-10.775985,34.039194,886
+NK101202,Nkhotakota,Government,District Hospital,Functional,Nkhotakota,-12.92508,34.27939,889
+PH221203,Nkhulambe,Government,Health Centre,Functional,Phalombe,-15.85977618,35.751342,890
+NK101204,Nkhunga,Government,Health Centre,Functional,Nkhotakota,-12.48023,34.10842,891
+MZ161205,Khuyukuyu,Government,Health Centre,Functional,Mzimba,-11.22183,33.91461,892
+MC011206,Nkhwazi,Government,Health Centre,Functional,Mchinji,-13.92369,33.22672,893
+CK271207,Nkombedzi Health Centre,Government,Health Centre,Functional,Chikwawa,-16.47944,34.72431,894
+CK271210,Nkumaniza,Government,Health Centre,Functional,Chikwawa,-16.47944,34.72431,897
+TH311212,Nsabwe Health Centre,Government,Health Post,Functional,Thyolo,-16.043512,34.952745,898
+LL041213,Nsaru,Government,Health Centre,Functional,Lilongwe,-13.8855,33.5043,899
+NS301216,Nsanje,Government,District Hospital,Functional,Nsanje,-16.91794,35.26001,902
+NT121219,Nsiyaludzu,Government,Health Centre,Functional,Ntcheu,-14.93648,34.87425,904
+CK271220,Nsomo,Government,Health Post,Functional,Chikwawa,-16.036946,34.72376,905
+MC191222,Ntaja,Government,Health Centre,Functional,Machinga,-14.86828,35.52911,906
+DE031223,Mtakataka,Government,Health Centre,Functional,Dedza,-14.22581,34.51119,907
+NT121225,Ntcheu District Hospital,Government,District Hospital,Functional,Ntcheu,-14.817077,34.6382088,909
+NT081226,Ntchisi,Government,District Hospital,Functional,Ntchisi,-13.36345,33.91061,910
+CP061228,Nthalire,Government,Health Centre,Functional,Chitipa,-10.34894,33.64394,911
+NT081231,Nthondo,Government,Health Centre,Functional,Ntchisi,-13.24723,34.00699,913
+LL041232,Nthondo,Government,Health Centre,Functional,Lilongwe,-14.03153,33.44849,914
+KB051235,Nthungwa,Government,Health Centre,Functional,Nkhata Bay,-11.66014,33.80046,916
+MC191238,Nyambi,Government,Health Centre,Functional,Machinga,-14.68999,35.57257,918
+NS301240,Nyamithuthu,Government,Health Centre,Functional,Nsanje,-16.68213,35.19821,919
+LL041243,Nyanja,Government,Health Post,Functional,Lilongwe,-14.138646,33.942874,921
+BK171244,Nyanyala  under 5 clinic,Government,Clinic,Functional,Balaka,-15.189789,34.921519,922
+KA151246,Nyungwe,Government,Health Centre,Functional,Karonga,-10.28546,34.10851,923
+KU071247,Ofesi,Government,Health Centre,Functional,Kasungu,-12.77939,33.54904,924
+KA151248,Old Hospital,Government,Dispensary,Functional,Karonga,-9.932075,33.940017,925
+SA091253,Parachute Battalion,Government,Dispensary,Functional,Salima,-13.74314,34.58826,927
+CK271259,Pende,Government,Health Post,Functional,Chikwawa,-16.485763,34.820457,931
+BT241260,Joshua Clinic,Government,Health Centre,Functional,Blantyre,-15.81,34.96,932
+PH221263,Phalombe,Government,Health Centre,Functional,Phalombe,-15.80677,35.64918,934
+NT121265,Phanga,Government,Dispensary,Functional,Ntcheu,-14.34498,34.72016,936
+BK171269,Phimbi,Government,Health Centre,Functional,Balaka,-15.25075,35.10716,938
+LL041271,Phirilanjuzi,Government,Health Post,Functional,Lilongwe,-14.153696,33.575306,939
+MG201272,Damu,Government,Health Centre,Functional,Mangochi,-14.5880382,34.8985585,940
+NS301274,Phokera,Government,Health Centre,Functional,Nsanje,-16.62831,35.15663,941
+RU141276,Phuno,Government,Health Post,Functional,Rumphi,-11.027859,34.074571,942
+BT241293,Queen Elizabeth Central Hospital,Government,Central Hospital,Functional,Blantyre,-15.80214,35.021,955
+KB051300,Ruarwe dispensary,Government,Dispensary,Functional,Nkhata Bay,-11.11377,34.23093,960
+RU141302,Rumphi,Government,District Hospital,Functional,Rumphi,-11.01993,33.85422,962
+ZA231305,Sadzi,Government,Health Centre,Functional,Zomba,-15.40882,35.31969,963
+SA091309,Admarc,Government,Dispensary,Functional,Salima,-13.78623,34.46243,966
+SA091312,District hospital,Government,District Hospital,Functional,Salima,-13.76214,34.42199,968
+NT081314,Sambakusi,Government,Health Post,Functional,Ntchisi,-13.349658,33.983158,969
+NS301319,Sankhulani,Government,Health Centre,Functional,Nsanje,-16.456861,35.258889,971
+KU071320,Santhe,Government,Health Centre,Functional,Kasungu,-13.46712,33.39378,972
+KA151331,Silo,Government,Health Post,Functional,Karonga,-9.938145,33.823415,977
+KU071332,Simlemba Health Centre,Government,Health Centre,Functional,Kasungu,-12.74081,33.6764,978
+BT241336,Soche Clinic,Government,Health Centre,Functional,Blantyre,-15.85726,35.02761,981
+CP061340,Near Sokola Primary school,Government,Health Post,Functional,Chitipa,-9.722825,33.583947,984
+NS301343,Sorgin,Government,Health Centre,Functional,Nsanje,-16.54278,35.01159,987
+BT241347,South Lunzu,Government,Health Centre,Functional,Blantyre,-15.72678,35.05471,989
+LK181355,St. Marys,Government,Health Centre,Functional,Likoma,-12.0293441,34.62425,995
+ZA231378,State house,Government,Clinic,Functional,Zomba,-15.38153,35.31027,1012
+MC011397,Tembwe,Government,Health Centre,Functional,Mchinji,-13.90113,33.06226,1020
+NS301399,Mpatsa,Government,Health Centre,Functional,Nsanje,-16.73308,35.27015,1022
+MW281401,Thambani,Government,Health Centre,Functional,Mwanza,-15.72609,34.39953,1023
+RU141405,Thazima,Government,Health Post,Functional,Rumphi,-10.8298,33.592408,1027
+TH311410,Thekerani Rural Hospital,Government,Hospital,Functional,Thyolo,-16.32104,35.20741,1031
+CK271413,Therere,Government,Health Post,Functional,Chikwawa,-16.36776,34.682238,1033
+CP061414,Therere,Government,Health Post,Functional,Chitipa,-10.417667,33.663209,1034
+ZA231416,Thondwe,Government,Dispensary,Functional,Zomba,-15.48458,35.23696,1036
+DA021418,Thonje,Government,Health Centre,Functional,Dowa,-13.72624,34.23725,1037
+KB051420,Thoto,Government,Dispensary,Functional,Nkhata Bay,-11.45315,34.27732,1039
+CR261424,Thumbwe,Government,Health Centre,Functional,Chiradzulu,-15.76823,35.24849,1040
+MZ161425,Thunduwike,Government,Health Centre,Functional,Mzimba,-11.17665,33.57636,1041
+TH311428,Thyolo Hospital,Government,Health Post,Functional,Thyolo,-16.06937,35.14806,1043
+KA151433,Tilola,Government,Health Post,Functional,Karonga,-10.329445,34.175349,1045
+DE031445,Tsoyo,Government,Clinic,Functional,Dedza,-14.08098,34.16138,1053
+KB051446,Tukombo,Government,Dispensary,Functional,Nkhata Bay,-11.6080859,34.3012409,1054
+MW281448,Tulonkhondo Health Centre,Government,Health Centre,Functional,Mwanza,-15.7496,34.52277,1055
+LL041451,Ukwe,Government,Health Centre,Functional,Lilongwe,-13.82586,33.60129,1058
+KA151453,Uliwa,Government,Health Post,Functional,Karonga,-10.454047,34.207592,1060
+KB051466,Usisya health centre,Government,Health Centre,Functional,Nkhata Bay,-11.2394,34.20941,1066
+MZ161470,Vibangalala,Government,Dispensary,Functional,Mzimba,-12.23433,33.48619,1069
+KA151471,Vilaule,Government,Health Post,Functional,Karonga,-9.944731,33.773907,1070
+PH221481,Waruma,Government,Health Post,Functional,Phalombe,-15.77083,35.550567,1073
+CP061485,Wenya,Government,Health Centre,Functional,Chitipa,-10.11286,33.56344,1075
+KA151489,Wililo,Government,Health Centre,Functional,Karonga,-9.89312,33.61404,1078
+KU071490,Wimbe,Government,Health Centre,Functional,Kasungu,-12.99126,33.68694,1079
+TH311506,Zoa Health Centre,Government,Health Centre,Functional,Thyolo,-16.23764,35.19992,1084
+MZ161507,Zolozolo,Government,Health Centre,Functional,Mzimba,-11.4352564,34.0241716,1085
+ZA231509,General,Government,Central Hospital,Functional,Zomba,-15.3994,35.31378,1086
+ZA231510,Zomba Prison Hospital,Government,Dispensary,Functional,Zomba,-15.39611,35.31248,1087
+ZA231513,Mental,Government,Hospital,Functional,Zomba,-15.39874,35.30477,1088
+NT081515,Chasolo Health Centre,Government,Health Centre,Functional,Ntchisi,-15.5,33.5,1090
+NT081516,Chasolo,Government,Health Centre,Functional,Ntchisi,-13.2512161,34.3015278,1091
+NT081517,Chinkhande,Government,Health Centre,Functional,Ntchisi,-13.2512161,34.3015278,1092
+PH221518,Namasoko Dispensary,Government,Dispensary,Functional,Phalombe,-15.739998,35.604002,1093
+BT241520,Ntonda Health Centre,Government,Health Centre,Functional,Blantyre,-13.2512161,34.3015278,1094
+BT241521,Kachere,Government,Health Centre,Functional,Blantyre,-13.2512161,34.3015278,1095
+BT241522,Khungulu,Government,Health Centre,Functional,Blantyre,-13.2512161,34.3015278,1096
+NS301523,New Makhanga,Government,Health Centre,Functional,Nsanje,-13.2512161,34.3015278,1097
+BK171524,Balaka OPD Health Centre,Government,Health Centre,Functional,Balaka,-14.990816,34.960833,1098
+BT241525,Bangwe Madina Health Centre,Government,Health Centre,Functional,Blantyre,-15.824296339104924,35.0877571105957,1099
+KU071526,Bua Dispensary,Government,Dispensary,Functional,Kasungu,-13.29372,33.5385,1100
+TH311527,Bvumbwe Research Health Centre,Government,Health Centre,Functional,Thyolo,-15.8905,35.06825,1101
+CP061528,Chisasu Health Post,Government,Health Post,Functional,Chitipa,-9.728244458178883,33.44372240545844,1102
+NE291529,Dambe Health Centre,Government,Unclassified,Functional,Neno,-15.56075495496076,34.50506393223805,1103
+LL041532,Diamphwi Health Centre,Government,Health Centre,Functional,Lilongwe,-14.13436,34.08153,1106
+NK101534,Dwangwa Matiki Clinic,Government,Clinic,Functional,Nkhotakota,-12.499,34.154,1107
+NK101536,Kaongozi Health Centre,Government,Health Centre,Functional,Nkhotakota,-12.929080299855835,34.27805540202219,1109
+MG201537,Kapire Health Centre,Government,Health Centre,Functional,Mangochi,-14.7858441,34.9994002,1110
+KA151538,Kayerekera Health Centre,Government,Health Centre,Functional,Karonga,-9.949218870246147,33.923395095685144,1111
+DE031539,Police College Mua,Government,Health Centre,Functional,Dedza,-14.22589,34.51142,1112
+PH221549,Phalombe District Hospital,Government,District Hospital,Functional,Phalombe,-15.7170604,35.7038228,1118
+BT241554,Makata Dispensary Ndirande,Government,Dispensary,Functional,Blantyre,-15.63006,35.07975,1122
+MZ161563,Manolo Health Centre,Government,Health Centre,Functional,Mzimba,-11.898040790369995,33.58455561169471,1124
+MG201573,Njereza,Government,Health Centre,Functional,Mangochi,-14.3392413,35.0317026,1130
+MG201574,Cape Mclear Dispensary,Government,Health Centre,Functional,Mangochi,-14.0259407,34.8521397,1131
+MG201575,Msaka Dispendary,Government,Dispensary,Functional,Mangochi,-14.0792622,34.8522917,1132
+MC011577,Chiwanga Health Post,Government,Health Post,Functional,Mchinji,-14.228096243574074,33.40584971768343,1134
+CP061578,Chinongo,Government,Health Post,Functional,Chitipa,-9.7132226149032,33.41614710248632,1135
+CP061579,Damsca,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,1136
+CP061580,Kasaghala,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,1137
+CP061581,Moto,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,1138
+CP061582,Mtogha,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,1139
+CP061583,St. Clara,Government,Health Centre,Functional,Chitipa,-9.9776826,33.4102447,1140
+CP061584,St. Cynthia,Government,Health Centre,Functional,Chitipa,-9.773001,33.522856,1141
+CP061585,Zambwe,Government,Health Post,Functional,Chitipa,-9.773001,33.522856,1142
+DE031586,Bema,Government,Dispensary,Functional,Dedza,-14.15069,34.31881,1143
+DE031587,Chejero,Government,Health Post,Functional,Dedza,-14.15069,34.31881,1144
+DE031588,Chiluzi,Government,Health Post,Functional,Dedza,-14.15069,34.31881,1145
+DE031589,Chinkombero,Government,Health Centre,Functional,Dedza,-14.15069,34.31881,1146
+DA021590,Nadzikhale,Government,Health Centre,Functional,Dowa,-14.15069,34.31881,1147
+DE031591,Tchetsa,Government,Dispensary,Functional,Dedza,-14.15069,34.31881,1148
+DA021592,Chikhobwe,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1149
+DA021593,Chimwanjati,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1150
+DA021594,Chingondo,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1151
+DA021595,Dzalo,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1152
+DA021596,Jonasi,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1153
+DA021597,Manondo,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1154
+DA021598,Mtayafuko,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1155
+DA021599,Tchawale,Government,Health Post,Functional,Dowa,-13.27878,33.68392,1156
+KU071600,Chanthunthu,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1157
+KU071601,Chima,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1158
+KU071602,Kadifula,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1159
+KU071603,Kamphotola,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1160
+KU071605,Liziri,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1162
+KU071607,Mbongozi,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1164
+KU071608,Miyowe,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1165
+KU071609,Mnthumbo,Government,Health Post,Functional,Kasungu,-13.29403,33.53859,1166
+KU071610,Mphomwa,Government,Clinic,Functional,Kasungu,-13.29403,33.53859,1167
+LL041611,Chiputu,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1168
+LL041612,Kandiyani,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1169
+LL041613,Kanyerere,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1170
+LL041614,Kapudzama,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1171
+LL041615,Katenje,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1172
+LL041616,Masinja,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1173
+LL041617,Mthang'ombe,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1174
+LL041618,Nyanda,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1175
+LL041619,Sese,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1176
+LL041621,Zabira,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1178
+LL041622,Zabira,Government,Health Post,Functional,Lilongwe,-13.95473,33.7793,1179
+MC191623,Chipamba,Government,Health Post,Functional,Machinga,-14.7655,35.66691,1180
+MG201624,Lupetere,Government,Health Post,Functional,Mangochi,-14.48,35.26,1181
+MG201625,Makoli,Government,Health Post,Functional,Mangochi,-14.4434386,35.341996,1182
+MG201626,Nalikolo,Government,Health Post,Functional,Mangochi,-14.48,35.26,1183
+MC011628,Border Wellness Centre,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1184
+MC011629,Kamchere,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1185
+MC011630,Kanyanda,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1186
+MC011633,Matutu,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1187
+MC011634,Sunama,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1188
+MC011635,Tongozara,Government,Health Post,Functional,Mchinji,-13.79508,32.89221,1189
+MW281636,Chimbwinda,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1190
+MW281637,Chimlango,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1191
+MW281638,Chimweta,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1192
+MW281639,Galafa,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1193
+MW281640,Gunde,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1194
+MW281641,Kalanga,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1195
+MW281642,Kapiseni,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1196
+MW281643,Samu,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1197
+MW281644,Samu,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1198
+MW281645,Thambala,Government,Health Post,Functional,Mwanza,-15.59747,34.51505,1199
+MZ161646,Chaboli,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1200
+MZ161647,Chasefu,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1201
+MZ161648,Chikwa,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1202
+MZ161649,Dimi,Government,Unclassified,Functional,Mzimba,-11.6781,33.44798,1203
+MZ161650,Emthuzini,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1204
+MZ161651,Jandalala,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1205
+MZ161653,Kakombwe,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1207
+MZ161654,Kaluwe,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1208
+MZ161655,Kalweya,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1209
+MZ161656,Kasenga,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1210
+MZ161657,Lukwelukwe,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1211
+MZ161658,Machecheta,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1212
+MZ161659,Malinyete,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1213
+MZ161660,Mkwangwali,Government,Health Centre,Functional,Mzimba,-11.6781,33.44798,1214
+MZ161661,Mtuzuzu,Government,Unclassified,Functional,Mzimba,-11.6781,33.44798,1215
+MZ161662,Mzoma,Government,Unclassified,Functional,Mzimba,-11.6781,33.44798,1216
+MZ161663,Phembe,Government,Health Centre,Functional,Mzimba,-12.54903193,33.51304244,1217
+MZ161664,Tangatanga,Government,Health Post,Functional,Mzimba,-11.6781,33.44798,1218
+MZ161665,Zowe,Government,Unclassified,Functional,Mzimba,-11.6781,33.44798,1219
+NE291666,Binje,Government,Health Post,Functional,Neno,-15.59825,34.69892,1220
+NE291667,Chawe,Government,Health Post,Functional,Neno,-15.59825,34.69892,1221
+NE291668,Feremu,Government,Health Post,Functional,Neno,-15.59825,34.69892,1222
+NE291669,Gonthi,Government,Health Post,Functional,Neno,-15.59825,34.69892,1223
+NE291670,Kam'mwamba,Government,Health Post,Functional,Neno,-15.59825,34.69892,1224
+NE291671,Mbemba,Government,Health Post,Functional,Neno,-15.59825,34.69892,1225
+NE291672,Mwetang'ombe,Government,Health Post,Functional,Neno,-15.59825,34.69892,1226
+NE291673,Nsenjere,Government,Health Post,Functional,Neno,-15.59825,34.69892,1227
+NE291674,Ntanja,Government,Health Post,Functional,Neno,-15.59825,34.69892,1228
+KB051675,Chituka,Government,Health Post,Functional,Nkhata Bay,-11.22268,34.12324,1229
+KB051676,Makumbo,Government,Health Post,Functional,Nkhata Bay,-11.22268,34.12324,1230
+KB051677,Mazamba,Government,Health Post,Functional,Nkhata Bay,-11.22268,34.12324,1231
+NS301678,Lundu,Government,Health Post,Functional,Nsanje,-17.0468,35.21658,1232
+NT081679,Chafumbwa,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1233
+NT081680,Chanjoka,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1234
+NT081681,Chazim'bobo,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1235
+NT081682,Mndimba,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1236
+NT081683,Mthiransembe,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1237
+NT081684,Namdzomba,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1238
+NT081685,Ndendere,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1239
+NT081686,Njakwa,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1240
+NT081687,Nyanga,Government,Health Post,Functional,Ntchisi,-13.26166,33.86851,1241
+RU141688,Bembe,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1242
+RU141689,Chaguwu,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1243
+RU141690,Chakaka,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1244
+RU141691,Junju,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1245
+RU141692,Kanyerere,Government,Health Centre,Functional,Rumphi,-10.76924,33.55751,1246
+RU141693,Kasenga,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1247
+RU141694,Mala,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1248
+RU141695,Mjuma,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1249
+RU141696,Mweyeye,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1250
+RU141697,Nkhombwa,Government,Health Post,Functional,Rumphi,-10.76924,33.55751,1251
+SA091698,Hope,Government,Health Centre,Functional,Salima,-13.77065,34.44174,1252
+SA091699,Mnema,Government,Health Centre,Functional,Salima,-13.77065,34.44174,1253
+ZA231704,Khanda,Government,Health Centre,Functional,Zomba,-15.5566963,35.8193749,1256
+ZA231705,Makina,Government,Health Centre,Functional,Zomba,-15.46571,35.51662,1257
+ZA231706,Sitima,Government,Health Post,Functional,Zomba,-15.46571,35.51662,1258
+CP061707,Kasitu,Government,Health Post,Functional,Chitipa,-9.692779352612405,33.36424421519302,1259
+DE031708,Magomero,Government,Dispensary,Functional,Dedza,-14.379705656858969,34.30903158350527,1260
+RU141710,Luviri,Government,Health Post,Functional,Rumphi,-11.024453289888156,33.864226735549565,1262
+MC011711,Mzama ,Government,Health Post,Functional,Mchinji,-14.133071806604791,33.40829109324171,1263
+MC011712,Mzenga ,Government,Health Post,Functional,Mchinji,-13.743748650534776,32.93412448508285,1264
+MC011713,Santhe ,Government,Health Post,Functional,Mchinji,-13.652971954574452,32.898647842615446,1265
+MU211714,Chimbalanga,Government,Health Post,Functional,Mulanje,-16.064451792859167,35.465792448442826,1266
+DA021715,Nambuma,Government,Health Centre,Functional,Dowa,-13.60146450336226,33.95193377297202,1267
+RU141719,Kasenga,Government,Health Centre,Functional,Rumphi,-11.172298549697244,33.823414679660566,1269
+MW281720,Mwanza Boarder Clinic,Government,Health Centre,Functional,Mwanza,-15.798897721007064,35.35815763425415,1270
+MW281722,Mwanza Border Clinic,Government,Health Centre,Functional,Mwanza,-15.63436273265216,35.46692835248617,1271
+MZ161732,Hora,Government,Health Centre,Functional,Mzimba,-11.645009,33.651632,1279
+MZ161733,Engalaweni,Government,Health Centre,Functional,Mzimba,-11.908296,33.365893,1280
+CK271734,Majete,Government,Health Centre,Functional,Chikwawa,-15.873873,34.767251,1281
+CK271735,Majete 6,Government,Health Centre,Functional,Chikwawa,-16.156663,34.712992,1282
+CK271737,Majete 3,Government,Health Centre,Functional,Chikwawa,-16.020747,34.525114,1283
+LL041747,Nguluwe,Government,Health Centre,Functional,Lilongwe,-14.0753967,33.6188717,1293
+DA021750,Chuzu,Government,Health Post,Functional,Dowa,-13.7293643,33.8702651,1295
+DA021751,Mtimaukanena,Government,Health Post,Functional,Dowa,-13.7457348,33.8058742,1296
+DA021752,Chivala,Government,Health Post,Functional,Dowa,-13.7107599,33.8063273,1297
+DA021756,Kawere,Government,Health Post,Functional,Dowa,-13.5130923,33.7139905,1301
+DA021757,Daimoni,Government,Health Post,Functional,Dowa,-13.6417786,33.5328729,1302
+DA021758,Lipiri,Government,Health Post,Functional,Dowa,-13.5715895,33.6013386,1303
+DA021759,Chilima,Government,Health Post,Functional,Dowa,-13.5719406,33.7958093,1304
+DE031765,Tunza Clinic,Government,Health Post,Functional,Dedza,-14.0,33.0,1309
+NK101784,Nkhotakota Hospita,Government,District Hospital,Functional,Nkhotakota,-12.9242558,34.2782753,1327
+MZ161787,Chizani Clinic,Government,Health Post,Functional,Mzimba,-12.50329685,33.62274169,1329
+MC011793,Dumasi Private Clinic,Government,Health Centre,Functional,Mchinji,-13.7933738,32.8936653,1332
+KA151796,Songer Border Dispensary,Government,Dispensary,Functional,Karonga,-9.590913,33.7757792,1334
+KA151797,Thawiro Dispensary,Government,Dispensary,Functional,Karonga,-15.3581515,35.5116866,1335
+MZ161804,Lunjika,Government,Health Centre,Functional,Mzimba,-11.764361,33.685696,1341
+SA091805,Chisamba,Government,Health Centre,Functional,Salima,-13.784275,34.400132,1342
+KU071807,Kakwale,Government,Clinic,Functional,Kasungu,-12.503054,33.544323,1344
+KB051808,Kwidu,Government,Clinic,Functional,Nkhata Bay,-11.541639,34.180138,1345
+MZ161809,Ekwendeni,Government,Clinic,Functional,Mzimba,-11.369831,33.882877,1346
+BT241811,Bangwe,Government,Dispensary,Functional,Blantyre,-15.84015,35.083595,1348
+MZ161812,Katoto,Government,Dispensary,Functional,Mzimba,-11.458099,34.012962,1349
+BT241813,Blantyre,Government,Dispensary,Functional,Blantyre,-15.455379,35.116379,1350
+BT241814,Blantyre,Government,Health Centre,Functional,Blantyre,-15.80401,35.016811,1351
+BT241815,Chirimba,Government,Dispensary,Functional,Blantyre,-15.743391,35.018944,1352
+BT241816,COM,Government,Clinic,Functional,Blantyre,-15.80489,35.005669,1353
+MZ161817,Watipa,Government,Clinic,Functional,Mzimba,-11.46048,34.018162,1354
+MZ161818,Zolozolo,Government,Dispensary,Functional,Mzimba,-11.44384,34.02528,1355
+MZ161819,Zolozolo,Government,Dispensary,Functional,Mzimba,-11.43551,34.02417,1356
+BT241820,Mthunzi-wathu,Government,Clinic,Functional,Blantyre,-15.735082,35.06031,1357
+BT241821,Naperi,Government,Dispensary,Functional,Blantyre,-15.810602,35.013298,1358
+BT241823,Sos,Government,Health Centre,Functional,Blantyre,-15.72571,35.05822,1360
+CK271826,Nchalo,Government,Health Centre,Functional,Chikwawa,-16.270485,34.86367,1361
+CR261827,Malavi,Government,Health Centre,Functional,Chiradzulu,-15.83686,35.14867,1362
+NK101828,Mazunga,Government,Clinic,Functional,Nkhotakota,-12.510015,34.111526,1363
+NT081830,St.,Government,Clinic,Functional,Ntchisi,-13.149629,33.839478,1365
+KA151831,Ngerenge,Government,Dispensary,Functional,Karonga,-9.8193669,33.8281918,1366
+LL041834,Area,Government,Dispensary,Functional,Lilongwe,-13.998923,33.132172,1368
+LL041835,Area,Government,Dispensary,Functional,Lilongwe,-13.89561,33.761448,1369
+LL041836,Area,Government,Dispensary,Functional,Lilongwe,-14.01632,33.785866,1370
+TH311837,MUST,Government,Clinic,Functional,Thyolo,-15.901806,35.216888,1371
+LL041838,Asha,Government,Health Centre,Functional,Lilongwe,-13.961618,33.761932,1372
+ZA231839,Matawale,Government,Dispensary,Functional,Zomba,-15.385289,35.357662,1373
+LL041840,Likuni,Government,Dispensary,Functional,Lilongwe,-14.03051,33.712784,1374
+LL041841,Lilongwe District Health Office,Government,Health Centre,Functional,Lilongwe,-13.9927,33.774879,1375
+LL041843,Biwi,Government,Health Centre,Functional,Lilongwe,-14.0013,33.4727,1376
+KU071844,Chambwe,Government,Health Centre,Functional,Kasungu,-13.19416667,33.65666667,1377
+KU071845,Kasungu BLM,Government,Clinic,Functional,Kasungu,-13.04628,33.4791,1378
+BK171847,Primary,Government,Clinic,Functional,Balaka,-15.05602,35.21495,1380
+LL041849,Area 25 BLM,Government,Clinic,Functional,Lilongwe,-13.89558,33.76382,1382
+LL041850,Falls BLM,Government,Clinic,Functional,Lilongwe,-13.99657,33.77887,1383
+LL041851,kawale BLM,Government,Clinic,Functional,Lilongwe,-13.99154,33.79512,1384
+LL041852,NRC,Government,Clinic,Functional,Lilongwe,-14.0007,33.394199,1385
+ZA231854,Zomba Airbase Clinic,Government,Clinic,Functional,Zomba,-15.388428,35.384308,1387
+MC191855,Machinga DIC,Government,Dispensary,Functional,Machinga,-15.062584,35.22348,1388
+MC191856,Ntaja DIC,Government,Dispensary,Functional,Machinga,-14.867734,35.532791,1389
+MG201858,Mangochi DIC 2,Government,Dispensary,Functional,Mangochi,-14.480145,35.266258,1391
+MG201860,Mbalama,Government,Health Centre,Functional,Mangochi,-14.71431,35.498909,1393
+MC011862,Funuel,Government,Dispensary,Functional,Mchinji,-13.50413,33.03624,1395
+MC011863,Home of Hope,Government,Clinic,Functional,Mchinji,-13.715006,32.900158,1396
+MC011864,Mchinji,Government,Clinic,Functional,Mchinji,-13.794971,32.892204,1397
+MC011865,Mchinji,Government,Health Centre,Functional,Mchinji,-13.753247,32.799061,1398
+BT241884,Nancholi,Government,Health Centre,Functional,Blantyre,-15.827409,34.969353,1399
+NT081885,Malindi,Government,Dispensary,Functional,Ntchisi,-13.395518,34.208982,1400
+NT081886,Chandawe,Government,Health Centre,Functional,Ntchisi,-13.228351,33.882811,1401
+MC011907,Nafuse Health Centre,Government,Health Centre,Functional,Mchinji,-13.81432209107756,33.15905277554406,1418
+SA091908,Pemba Health Centre,Government,Health Centre,Functional,Salima,-13.76214,34.42199,1419
+MC011909,Mphelero Health Centre,Government,Health Centre,Functional,Mchinji,-13.80273,32.88716,1420
+SA091910,Hope Clinic,Government,Clinic,Functional,Salima,-13.76214,34.42199,1421
+TH311915,Lomola,Government,Health Centre,Functional,Thyolo,-16.10158,35.287508,1426
+TH311916,Thowela,Government,Health Centre,Functional,Thyolo,-16.030848,35.2750725,1427
+BT241917,Klaus,Government,Health Centre,Functional,Blantyre,-15.66774,35.09414,1428
+SA091918,Chifundo Health Centre,Government,Unclassified,Functional,Salima,-13.59695,34.31111,1429
+KU071925,Kapichira,Government,Health Centre,Functional,Kasungu,-12.899257,33.935962,1433
+NT121930,Mlangeni Police Dispensary,Government,Dispensary,Functional,Ntcheu,-14.614559,34.541589,1438
+BK171935,Khwisa Community Hospital,Government,Hospital,Functional,Balaka,-14.8965465,34.9464315,1443
+DE031936,Wellness Centre,Government,Dispensary,Functional,Dedza,-14.400375,34.325702,1444

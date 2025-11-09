@@ -39,6 +39,8 @@ This project includes an interactive Streamlit app to visualize clinic locations
 - 🔍 Filter by specific clinic locations
 - 🏥 MHFR facilities with filtering by status, ownership, and type
 - 📈 Statistics and metrics for each dataset
+- 🗺️ **NEW: District boundary visualization** - View all 28 districts of Malawi
+- 🎯 **NEW: District assignment** - Associate facilities and clinics with districts using spatial joins
 
 **Coverage Analysis Page:**
 - 🎯 Calculate population coverage by healthcare facilities
@@ -89,7 +91,36 @@ streamlit run app.py
 
 The app will open in your default web browser at http://localhost:8501
 
+### District Boundaries & Spatial Analysis
+
+**Setup District Boundaries:**
+```bash
+# Download district boundary files (GeoJSON format)
+python download_boundaries.py
+```
+
+This downloads administrative boundaries for Malawi (districts, regions, and country) from [geoBoundaries](https://www.geoboundaries.org/).
+
+**Batch Assign Districts:**
+```bash
+# Assign districts to all facilities and clinics
+python assign_districts.py
+```
+
+This creates two new files:
+- `data/MHFR_Facilities_with_districts.csv` - All health facilities with district assignments
+- `data/GAIA_Clinics_with_districts.csv` - All clinic stops with district assignments
+
+**Interactive District Assignment:**
+- Enable **"🗺️ District Boundaries"** in the sidebar
+- Navigate to **"🗺️ District Analysis"** section
+- Use the **"🔍 Auto-assign Districts"** buttons to interactively assign districts to your data
+
+📖 For detailed information, see [DISTRICT_BOUNDARIES_GUIDE.md](DISTRICT_BOUNDARIES_GUIDE.md)
+
 ### Data Sources
 - **GAIA Mobile Health Clinic GPS locations**: Clinic stops with GPS coordinates
+- **Malawi Health Facility Registry (MHFR)**: Comprehensive health facility database with locations, types, and ownership
 - **High Resolution Population Density Maps**: Meta Data for Good - Population density data for Malawi (2020)
+- **Administrative Boundaries**: [geoBoundaries](https://www.geoboundaries.org/) - Open-source political administrative boundaries for Malawi (28 districts)
 

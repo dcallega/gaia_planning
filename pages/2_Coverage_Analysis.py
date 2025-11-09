@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy.spatial import cKDTree
 from app import render_navigation
+from spatial_utils import filter_points_in_country
 
 st.set_page_config(
     page_title="Coverage Analysis", page_icon="assets/gaia_icon.png", layout="wide"
@@ -60,6 +61,32 @@ def load_clinic_data():
     return df
 
 
+def normalize_facility_type(facility_type):
+    """
+    Normalize facility types by grouping similar types together.
+    
+    Groups:
+    - All hospitals (Hospital, District Hospital, Central Hospital) -> "Hospital"
+    - Health Centre and Health Post -> "Health Centre"
+    - Others remain as-is
+    """
+    if pd.isna(facility_type):
+        return facility_type
+    
+    facility_type = str(facility_type).strip()
+    
+    # Group all hospitals together
+    if facility_type in ["Hospital", "District Hospital", "Central Hospital"]:
+        return "Hospital"
+    
+    # Group Health Centre and Health Post together
+    if facility_type in ["Health Centre", "Health Post"]:
+        return "Health Centre"
+    
+    # Return original type for others
+    return facility_type
+
+
 # Cache the MHFR facilities data
 @st.cache_data
 def load_mhfr_facilities():
@@ -89,6 +116,15 @@ def load_mhfr_facilities():
     # Filter out rows with empty or zero coordinates
     df = df[(df["latitude"] != 0) & (df["longitude"] != 0)]
 
+    # Filter out facilities without a type
+    df = df[df["type"].notna() & (df["type"].str.strip() != "")]
+
+    # Filter out "Private" and "Unclassified" facility types
+    df = df[~df["type"].isin(["Private", "Unclassified"])]
+
+    # Normalize facility types (group hospitals, group health centres/posts)
+    df["type"] = df["type"].apply(normalize_facility_type)
+
     return df
 
 
@@ -102,6 +138,9 @@ def load_population_data(dataset_name):
     # Filter out zero or very low population values
     pop_column = f"mwi_{dataset_name}_2020"
     df = df[df[pop_column] > 0.1]
+
+    # Filter out population points outside the country boundary
+    df = filter_points_in_country(df, lat_col='latitude', lon_col='longitude')
 
     return df
 
@@ -283,8 +322,12 @@ try:
     # Apply filters to MHFR facilities
     filtered_mhfr = mhfr_df.copy()
 
+    # Filter by type - if no types selected, show no facilities
     if len(selected_types) > 0:
         filtered_mhfr = filtered_mhfr[filtered_mhfr["type"].isin(selected_types)]
+    else:
+        # If no types selected, filter out all facilities
+        filtered_mhfr = filtered_mhfr.iloc[0:0].copy()  # Create empty dataframe with same structure
 
     if len(selected_status) > 0:
         filtered_mhfr = filtered_mhfr[filtered_mhfr["status"].isin(selected_status)]
