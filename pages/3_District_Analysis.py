@@ -3,7 +3,11 @@ import pandas as pd
 import pydeck as pdk
 import numpy as np
 import json
-from data_utils import ensure_population_csv
+from data_utils import (
+    ensure_population_csv,
+    prepare_population_dataframe,
+    POPULATION_CACHE_HASH_FUNCS,
+)
 from spatial_utils import load_district_boundaries, assign_districts_to_dataframe
 from sklearn.neighbors import BallTree
 
@@ -125,7 +129,7 @@ def load_population_data(dataset_name):
         import os
         if os.path.exists(cache_file):
             df = pd.read_parquet(cache_file)
-            return df
+            return prepare_population_dataframe(df, dataset_name)
     except Exception as e:
         print(f"Could not load cache: {e}")
     
@@ -137,6 +141,8 @@ def load_population_data(dataset_name):
     # Filter to only points inside country boundaries
     from spatial_utils import filter_points_in_country
     df = filter_points_in_country(df, lat_col='latitude', lon_col='longitude')
+
+    df = prepare_population_dataframe(df, dataset_name)
     
     # Save to cache for next time
     try:
@@ -150,7 +156,11 @@ def load_population_data(dataset_name):
 
 
 # Cache district assignment separately
-@st.cache_data(persist="disk", show_spinner=False)
+@st.cache_data(
+    persist="disk",
+    show_spinner=False,
+    hash_funcs=POPULATION_CACHE_HASH_FUNCS,
+)
 def assign_districts_to_population(population_df, dataset_name):
     """Assign districts to population data - cached separately for performance"""
     cached_file = f"data/.cache/mwi_{dataset_name}_2020_with_districts.parquet"
@@ -159,7 +169,7 @@ def assign_districts_to_population(population_df, dataset_name):
         if pd.io.common.file_exists(cached_file):
             cached_df = pd.read_parquet(cached_file)
             if len(cached_df) == len(population_df):
-                return cached_df
+                return prepare_population_dataframe(cached_df, dataset_name)
     except:
         pass
     
@@ -169,6 +179,8 @@ def assign_districts_to_population(population_df, dataset_name):
         lat_col='latitude', 
         lon_col='longitude'
     )
+
+    df = prepare_population_dataframe(df, dataset_name)
     
     # Save for next time
     try:
@@ -1271,7 +1283,7 @@ def district_analysis_page():
             map_style="road",
         )
 
-        st.pydeck_chart(r, use_container_width=True)
+        st.pydeck_chart(r, width="stretch")
 
         # Display summary metrics
         st.markdown("---")
@@ -1522,7 +1534,7 @@ def district_analysis_page():
                             "style": {"backgroundColor": "#2C3E50", "color": "white"},
                         },
                     )
-                    st.pydeck_chart(deployment_map, use_container_width=True)
+                    st.pydeck_chart(deployment_map, width="stretch")
                 else:
                     st.info("No deployment layers to display.")
             
@@ -1580,5 +1592,5 @@ def district_analysis_page():
 
 
 # # Run the page
-# district_analysis_page()
+district_analysis_page()
 

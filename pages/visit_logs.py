@@ -414,7 +414,7 @@ with tab1:
             p_turned_away = st.checkbox("Turned away (capacity)", key="p_turned_away")
 
         # Add patient button
-        if st.button("➕ Add Patient to List", use_container_width=True):
+        if st.button("➕ Add Patient to List", width="stretch"):
             if not age_bracket or not gender or not distance or not patient_type:
                 st.error(
                     "❌ Please fill in all required fields (Age, Gender, Distance, Patient Type)"
@@ -526,7 +526,7 @@ with tab1:
                 st.write("✓ Reproductive Health")
 
         # Clear all button
-        if st.button("🗑️ Clear All Patients", use_container_width=True):
+        if st.button("🗑️ Clear All Patients", width="stretch"):
             st.session_state.patient_entries = []
             st.rerun()
     else:
@@ -560,7 +560,7 @@ with tab1:
 
     # Submit button
     st.markdown("---")
-    if st.button("💾 Save Visit Log", use_container_width=True, type="primary"):
+    if st.button("💾 Save Visit Log", width="stretch", type="primary"):
         # Validate clinic info
         clinic_info = {
             "clinic_stop_id": clinic_stop_id,
@@ -731,7 +731,7 @@ with tab2:
 
             st.dataframe(
                 filtered_df[available_cols].sort_values("date", ascending=False),
-                use_container_width=True,
+                width="stretch",
                 hide_index=True,
             )
 
@@ -880,7 +880,7 @@ with tab3:
 
             # Display preview
             st.markdown("#### 👀 Preview (first 5 rows)")
-            st.dataframe(upload_df.head(), use_container_width=True)
+            st.dataframe(upload_df.head(), width="stretch")
 
             # Validate columns
             required_cols = ["clinic_stop_id", "date", "total_patients_seen"]
@@ -915,7 +915,7 @@ with tab3:
                     st.success("✅ All rows validated successfully!")
 
                 # Upload button
-                if st.button("💾 Import Visit Logs", use_container_width=True):
+                if st.button("💾 Import Visit Logs", width="stretch"):
                     # Load existing logs
                     existing_df = load_visit_logs()
 
@@ -1073,7 +1073,7 @@ with tab4:
                 "Total Patients", ascending=False
             )
 
-            st.dataframe(clinic_performance, use_container_width=True)
+            st.dataframe(clinic_performance, width="stretch")
 
         # Time trends
         st.markdown("---")

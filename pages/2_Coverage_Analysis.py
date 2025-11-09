@@ -432,7 +432,9 @@ try:
         bins=distance_bins,
         labels=distance_labels,
     )
-    distance_dist = pop_with_coverage_selected.groupby("distance_bin")[pop_column].sum()
+    distance_dist = pop_with_coverage_selected.groupby(
+        "distance_bin", observed=False
+    )[pop_column].sum()
     st.bar_chart(distance_dist)
 
     # Healthcare Desert Zones
@@ -475,7 +477,7 @@ try:
             .copy()
         )
         top_deserts.columns = ["Population", "Distance (km)"]
-        st.dataframe(top_deserts, use_container_width=True, hide_index=True)
+        st.dataframe(top_deserts, width="stretch", hide_index=True)
 
     # ============================================================================
     # SECTION 2: EQUITY METRICS
@@ -516,7 +518,7 @@ try:
 
     if demographic_coverage:
         demo_df_display = pd.DataFrame(demographic_coverage)
-        st.dataframe(demo_df_display, use_container_width=True, hide_index=True)
+        st.dataframe(demo_df_display, width="stretch", hide_index=True)
 
         # Coverage comparison chart
         coverage_pcts = [
@@ -587,7 +589,7 @@ try:
     )
 
     st.markdown("**Top 20 Most Vulnerable Areas**")
-    st.dataframe(top_vulnerable, use_container_width=True, hide_index=True)
+    st.dataframe(top_vulnerable, width="stretch", hide_index=True)
 
     # Vulnerability distribution
     st.markdown("**Vulnerability Score Distribution**")
@@ -635,7 +637,7 @@ try:
             )
 
         impact_df = pd.DataFrame(clinic_impact)
-        st.dataframe(impact_df, use_container_width=True, hide_index=True)
+        st.dataframe(impact_df, width="stretch", hide_index=True)
 
         # Scatter plot: Estimated impact
         st.markdown("**Estimated Impact Distribution**")
@@ -688,7 +690,7 @@ try:
                 "Estimated Coverage %",
             ]
         ]
-        st.dataframe(top_performers, use_container_width=True, hide_index=True)
+        st.dataframe(top_performers, width="stretch", hide_index=True)
 
         # Underperforming Sites
         st.markdown("---")
@@ -724,7 +726,7 @@ try:
 
         if underperformers:
             underperformers_df = pd.DataFrame(underperformers)
-            st.dataframe(underperformers_df, use_container_width=True, hide_index=True)
+            st.dataframe(underperformers_df, width="stretch", hide_index=True)
         else:
             st.success("✅ No underperforming sites flagged at this time.")
     else:

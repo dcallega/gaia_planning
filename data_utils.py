@@ -12,6 +12,8 @@ import zipfile
 from pathlib import Path
 from typing import Iterable
 
+import pandas as pd
+
 DATA_DIR = Path("data")
 
 # Ordered list mirrors the options exposed in the Streamlit app
@@ -76,4 +78,39 @@ def ensure_all_population_csvs() -> None:
             "One or more population datasets are missing:\n"
             + "\n".join(f"- {msg}" for msg in missing_archives)
         )
+
+
+def hash_dataframe_for_cache(df: pd.DataFrame) -> str:
+    """
+    Provide a stable cache hash for pandas DataFrames that may contain
+    otherwise unhashable dtypes (e.g., numpy arrays).
+    """
+    key = df.attrs.get("_gaia_cache_key")
+    if key is not None:
+        return str(key)
+    columns_signature = "|".join(map(str, df.columns))
+    rows, cols = df.shape
+    return f"shape={rows}x{cols};cols={columns_signature}"
+
+
+def prepare_population_dataframe(
+    df: pd.DataFrame, dataset_name: str
+) -> pd.DataFrame:
+    """
+    Normalize population DataFrame columns so they are safe to cache and
+    attach a deterministic cache key used by `hash_dataframe_for_cache`.
+    """
+    drop_columns = [col for col in ("color",) if col in df.columns]
+    if drop_columns:
+        df = df.drop(columns=drop_columns)
+
+    pop_field = f"mwi_{dataset_name}_2020"
+    total_pop = float(df[pop_field].sum()) if pop_field in df.columns else 0.0
+    df.attrs["_gaia_cache_key"] = (
+        f"population:{dataset_name}:{len(df)}:{total_pop:.0f}"
+    )
+    return df
+
+
+POPULATION_CACHE_HASH_FUNCS = {pd.DataFrame: hash_dataframe_for_cache}
 

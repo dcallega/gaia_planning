@@ -3,7 +3,12 @@ import pandas as pd
 import pydeck as pdk
 import numpy as np
 import json
-from data_utils import ensure_population_csv, ensure_all_population_csvs
+from data_utils import (
+    ensure_population_csv,
+    ensure_all_population_csvs,
+    prepare_population_dataframe,
+    POPULATION_CACHE_HASH_FUNCS,
+)
 from spatial_utils import assign_districts_to_dataframe, load_district_boundaries, load_country_boundary, filter_points_in_country
 from sklearn.neighbors import BallTree
 
@@ -145,7 +150,7 @@ def load_population_data(dataset_name):
         if os.path.exists(cache_file):
             # Load from pre-computed cache (very fast!)
             df = pd.read_parquet(cache_file)
-            return df
+            return prepare_population_dataframe(df, dataset_name)
     except Exception as e:
         print(f"Could not load cache: {e}")
     
@@ -161,7 +166,9 @@ def load_population_data(dataset_name):
     # Filter to only points inside country boundaries
     df = filter_points_in_country(df, lat_col='latitude', lon_col='longitude')
     
-    # Save to cache for next time
+    # Prepare and save to cache for next time
+    df = prepare_population_dataframe(df, dataset_name)
+
     try:
         import os
         os.makedirs('data/.cache', exist_ok=True)
@@ -198,7 +205,11 @@ def sample_for_visualization(df, sample_size=50000):
 
 
 # Cache district assignment separately (expensive operation, only when needed)
-@st.cache_data(persist="disk", show_spinner=False)
+@st.cache_data(
+    persist="disk",
+    show_spinner=False,
+    hash_funcs=POPULATION_CACHE_HASH_FUNCS,
+)
 def assign_districts_to_population(population_df, dataset_name):
     """Assign districts to population data - cached separately for performance"""
     # Check if we have a pre-computed version
@@ -209,7 +220,7 @@ def assign_districts_to_population(population_df, dataset_name):
             # Load and verify it matches our current data
             cached_df = pd.read_parquet(cached_file)
             if len(cached_df) == len(population_df):
-                return cached_df
+                return prepare_population_dataframe(cached_df, dataset_name)
     except:
         pass
     
@@ -220,6 +231,8 @@ def assign_districts_to_population(population_df, dataset_name):
         lon_col='longitude'
     )
     
+    df = prepare_population_dataframe(df, dataset_name)
+
     # Save for next time
     try:
         import os
@@ -231,7 +244,12 @@ def assign_districts_to_population(population_df, dataset_name):
     return df
 
 
-@st.cache_data(persist="disk", show_spinner=False, max_entries=20)
+@st.cache_data(
+    persist="disk",
+    show_spinner=False,
+    max_entries=20,
+    hash_funcs=POPULATION_CACHE_HASH_FUNCS,
+)
 def calculate_coverage_metrics(population_df, facilities_df, pop_column, service_radius_km=5.0):
     """
     Calculate coverage metrics for population data
@@ -282,7 +300,12 @@ def calculate_coverage_metrics(population_df, facilities_df, pop_column, service
     }
 
 
-@st.cache_data(persist="disk", show_spinner=False, max_entries=20)
+@st.cache_data(
+    persist="disk",
+    show_spinner=False,
+    max_entries=20,
+    hash_funcs=POPULATION_CACHE_HASH_FUNCS,
+)
 def calculate_district_coverage_metrics(population_df_with_districts, facilities_df, pop_column, service_radius_km=5.0):
     """
     Calculate coverage metrics broken down by district
