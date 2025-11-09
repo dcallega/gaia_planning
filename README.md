@@ -1,8 +1,27 @@
 # Gaia Planning
 
-git repo at https://github.com/dcallega/gaia_planning
+Data-driven resource allocation for equitable healthcare in Malawi. Interactive visualization and analysis tool for healthcare facility coverage and population density.
 
-Problem definition at [link](https://hackforsocialimpact.notion.site/PS7-GAIA-Health-Data-Driven-Resource-Allocation-for-Equitable-Healthcare-in-Malawi-2a5ed247254d80db9741d5ceefa5a66a)
+📍 [GitHub Repository](https://github.com/dcallega/gaia_planning) | 📋 [Problem Definition](https://hackforsocialimpact.notion.site/PS7-GAIA-Health-Data-Driven-Resource-Allocation-for-Equitable-Healthcare-in-Malawi-2a5ed247254d80db9741d5ceefa5a66a)
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/dcallega/gaia_planning.git
+cd gaia_planning
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Download and setup data (automated)
+python setup_data.py
+
+# Run the app
+streamlit run app.py
+```
+
+The app will open at http://localhost:8501
 
 ## Current Status Estimate 
 There are mobile clinics deployed in Mulanje, Phalombe, and Mangochi.
@@ -39,13 +58,20 @@ pip install -r requirements.txt
 ```
 
 2. Download and extract the population data:
-   - Download `malawi_population_data.zip` from [Google Drive](YOUR_GOOGLE_DRIVE_LINK_HERE)
+   
+   **Option A - Automated setup (recommended):**
+   ```bash
+   python setup_data.py
+   ```
+   
+   **Option B - Manual setup:**
+   - Download `malawi_population_data.zip` from [Google Drive](https://drive.google.com/file/d/1BfIEe_35somT16UrIJPU4RUtknU4Fq_R/view?usp=drive_link)
    - Extract the zip file into the `data/` directory:
    ```bash
    unzip malawi_population_data.zip -d data/
    ```
    
-   The zip file contains:
+   The zip file contains 7 population density CSV files (~159MB compressed, ~1.5GB uncompressed):
    - `mwi_general_2020.csv` - General population density
    - `mwi_women_2020.csv` - Women population density
    - `mwi_men_2020.csv` - Men population density
