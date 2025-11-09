@@ -16,10 +16,11 @@ Usage:
 from coverage_lib import CoverageAnalyzer
 from mobile_clinic_planner import MobileClinicPlanner, print_planning_summary
 import pandas as pd
+from data_utils import ensure_population_csv
 
 # Configuration
 FACILITIES_PATH = "data/MHFR_Facilities.csv"
-POPULATION_PATH = "data/mwi_general_2020.csv"
+POPULATION_PATH = str(ensure_population_csv("general"))
 SERVICE_RADIUS_KM = 5.0
 MAX_MOBILE_TEAMS = 10  # Maximum number of mobile clinic teams to plan
 

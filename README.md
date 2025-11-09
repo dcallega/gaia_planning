@@ -59,28 +59,15 @@ This project includes an interactive Streamlit app to visualize clinic locations
 pip install -r requirements.txt
 ```
 
-2. Download and extract the population data:
+2. Population data:
    
-   **Option A - Automated setup (recommended):**
-   ```bash
-   python setup_data.py
-   ```
-   
-   **Option B - Manual setup:**
-   - Download `malawi_population_data.zip` from [Google Drive](https://drive.google.com/file/d/1BfIEe_35somT16UrIJPU4RUtknU4Fq_R/view?usp=drive_link)
-   - Extract the zip file into the `data/` directory:
-   ```bash
-   unzip malawi_population_data.zip -d data/
-   ```
-   
-   The zip file contains 7 population density CSV files (~159MB compressed, ~1.5GB uncompressed):
-   - `mwi_general_2020.csv` - General population density
-   - `mwi_women_2020.csv` - Women population density
-   - `mwi_men_2020.csv` - Men population density
-   - `mwi_children_under_five_2020.csv` - Children under 5 population density
-   - `mwi_youth_15_24_2020.csv` - Youth (15-24) population density
-   - `mwi_elderly_60_plus_2020.csv` - Elderly (60+) population density
-   - `mwi_women_of_reproductive_age_15_49_2020.csv` - Women of reproductive age (15-49) population density
+   - The repository includes compressed population datasets under `data/mwi_*_2020.csv.zip` (≈24 MB each).  
+     They are extracted automatically the first time the app or helper scripts need them.
+   - If you need to refresh from the upstream source, run the automated downloader:
+     ```bash
+     python setup_data.py
+     ```
+     This fetches the original Google Drive archive (~160 MB) and recreates the raw CSVs (~1.5 GB total).
 
 ### Usage
 

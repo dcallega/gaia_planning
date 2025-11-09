@@ -15,8 +15,9 @@ Usage:
 
 import numpy as np
 import pandas as pd
-from sklearn.neighbors import BallTree
 from collections import defaultdict
+from sklearn.neighbors import BallTree
+from data_utils import ensure_population_csv
 
 # Constants
 EARTH_RADIUS_KM = 6371.0088
@@ -311,7 +312,7 @@ def main():
     
     # File paths
     facilities_path = "data/MHFR_Facilities.csv"
-    population_path = "data/mwi_general_2020.csv"
+    population_path = str(ensure_population_csv("general"))
     
     try:
         # Load facilities

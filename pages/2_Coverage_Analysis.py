@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy.spatial import cKDTree
 from app import render_navigation
+from data_utils import ensure_population_csv
 from spatial_utils import filter_points_in_country
 
 st.set_page_config(
@@ -132,8 +133,8 @@ def load_mhfr_facilities():
 @st.cache_data
 def load_population_data(dataset_name):
     """Load population density data"""
-    file_path = f"data/mwi_{dataset_name}_2020.csv"
-    df = pd.read_csv(file_path)
+    csv_path = ensure_population_csv(dataset_name)
+    df = pd.read_csv(csv_path)
 
     # Filter out zero or very low population values
     pop_column = f"mwi_{dataset_name}_2020"

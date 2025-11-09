@@ -1,0 +1,79 @@
+"""
+Utilities for working with locally bundled datasets.
+
+We keep heavy population CSVs zipped in the repository to stay under Git
+hosting limits. At runtime we extract individual CSVs on-demand so existing
+code that expects `data/mwi_<dataset>_2020.csv` continues to work.
+"""
+
+from __future__ import annotations
+
+import zipfile
+from pathlib import Path
+from typing import Iterable
+
+DATA_DIR = Path("data")
+
+# Ordered list mirrors the options exposed in the Streamlit app
+POPULATION_DATASETS: Iterable[str] = [
+    "general",
+    "women",
+    "men",
+    "children_under_five",
+    "youth_15_24",
+    "elderly_60_plus",
+    "women_of_reproductive_age_15_49",
+]
+
+
+def _population_csv_name(dataset_name: str) -> str:
+    return f"mwi_{dataset_name}_2020.csv"
+
+
+def ensure_population_csv(dataset_name: str) -> Path:
+    """
+    Ensure the uncompressed CSV for a population dataset exists locally.
+
+    If a zipped version (`*.csv.zip`) is present and the raw CSV is missing,
+    the archive is extracted into `data/`. The resulting CSV path is returned.
+    """
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    csv_name = _population_csv_name(dataset_name)
+    csv_path = DATA_DIR / csv_name
+    if csv_path.exists():
+        return csv_path
+
+    zip_path = DATA_DIR / f"{csv_name}.zip"
+    if zip_path.exists():
+        with zipfile.ZipFile(zip_path, "r") as archive:
+            archive.extract(csv_name, path=DATA_DIR)
+        return csv_path
+
+    raise FileNotFoundError(
+        f"Population dataset '{dataset_name}' not found. "
+        f"Expected either '{csv_path}' or '{zip_path}'."
+    )
+
+
+def ensure_all_population_csvs() -> None:
+    """
+    Extract all population CSVs that have a zipped counterpart.
+
+    Useful for local development or maintenance scripts that expect every CSV
+    to be present up-front.
+    """
+    missing_archives = []
+
+    for dataset_name in POPULATION_DATASETS:
+        try:
+            ensure_population_csv(dataset_name)
+        except FileNotFoundError as exc:
+            missing_archives.append(str(exc))
+
+    if missing_archives:
+        raise FileNotFoundError(
+            "One or more population datasets are missing:\n"
+            + "\n".join(f"- {msg}" for msg in missing_archives)
+        )
+

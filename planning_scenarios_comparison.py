@@ -16,6 +16,9 @@ from coverage_lib import CoverageAnalyzer
 from mobile_clinic_planner import MobileClinicPlanner
 import mobile_clinic_planner
 import pandas as pd
+from data_utils import ensure_population_csv
+
+POPULATION_PATH = str(ensure_population_csv("general"))
 
 
 def run_planning_scenario(scenario_name: str, 
@@ -123,7 +126,7 @@ def main():
     
     # Find coverage gaps
     print("Finding coverage gaps...")
-    gaps = analyzer.find_coverage_gaps("data/mwi_general_2020.csv", max_distance_km=10.0)
+    gaps = analyzer.find_coverage_gaps(POPULATION_PATH, max_distance_km=10.0)
     print(f"Found {len(gaps):,} population points in gaps")
     
     # ==========================================
@@ -190,7 +193,7 @@ def main():
     ].copy()
     analyzer_free.build_spatial_index()
     
-    gaps_free = analyzer_free.find_coverage_gaps("data/mwi_general_2020.csv", max_distance_km=10.0)
+    gaps_free = analyzer_free.find_coverage_gaps(POPULATION_PATH, max_distance_km=10.0)
     print(f"Found {len(gaps_free):,} population points in gaps (free facilities only)")
     
     # Temporarily update global variables for this scenario

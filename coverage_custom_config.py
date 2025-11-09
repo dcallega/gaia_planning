@@ -13,6 +13,7 @@ Usage:
 
 from coverage_lib import CoverageAnalyzer
 import pandas as pd
+from data_utils import ensure_population_csv
 
 
 def main():
@@ -24,6 +25,8 @@ def main():
     print("  - Service radius: 4.5 km")
     print("  - Facilities: FREE functional sites only")
     print("="*70)
+
+    population_path = str(ensure_population_csv("general"))
     
     # Initialize analyzer with custom service radius
     analyzer = CoverageAnalyzer(service_radius_km=4.5)
@@ -61,7 +64,7 @@ def main():
     
     # Compute coverage with custom configuration
     print("\nStep 4: Computing coverage (4.5 km radius, free sites only)...")
-    coverage = analyzer.compute_basic_coverage("data/mwi_general_2020.csv")
+    coverage = analyzer.compute_basic_coverage(population_path)
     
     # Display results
     print("\n" + "="*70)
@@ -82,7 +85,7 @@ def main():
     analyzer_all = CoverageAnalyzer(service_radius_km=5.0)
     analyzer_all.load_facilities("data/MHFR_Facilities.csv", filter_functional=True)
     analyzer_all.build_spatial_index()
-    coverage_all = analyzer_all.compute_basic_coverage("data/mwi_general_2020.csv")
+    coverage_all = analyzer_all.compute_basic_coverage(population_path)
     
     print(f"\nAll Functional Facilities (5 km):")
     print(f"  Facilities:  {len(analyzer_all.facilities_df)}")

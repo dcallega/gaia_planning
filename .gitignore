@@ -43,7 +43,6 @@ Thumbs.db
 
 # Large data files (download from Google Drive - see README)
 data/mwi_*.csv
-data/*.zip
 
 # Cache files
 data/.cache/

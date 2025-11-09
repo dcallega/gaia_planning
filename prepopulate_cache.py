@@ -26,6 +26,7 @@ import sys
 import time
 import argparse
 import pandas as pd
+from data_utils import ensure_population_csv
 from spatial_utils import assign_districts_to_dataframe, filter_points_in_country
 
 # Population datasets to process
@@ -57,7 +58,7 @@ def filter_population_dataset(dataset_name, force=False):
     print(f"{'='*70}")
     
     # File paths
-    input_file = f"data/mwi_{dataset_name}_2020.csv"
+    input_file = str(ensure_population_csv(dataset_name))
     output_file = f"data/.cache/mwi_{dataset_name}_2020_filtered.parquet"
     
     # Check if input file exists

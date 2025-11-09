@@ -72,6 +72,10 @@ def assign_districts_to_dataframe(df, lat_col='latitude', lon_col='longitude'):
     result = joined.drop(columns=['geometry', 'index_right'], errors='ignore')
     result = result.rename(columns={'shapeName': 'assigned_district'})
     
+    # Convert to regular pandas DataFrame to avoid caching issues with GeoDataFrame
+    # This ensures all columns contain only hashable types
+    result = pd.DataFrame(result)
+    
     return result
 
 def get_district_stats(df, district_col='district'):
@@ -166,10 +170,12 @@ def filter_points_in_country(df, lat_col='latitude', lon_col='longitude'):
         # Vectorized contains check (MUCH faster than row-by-row)
         mask = points_gdf.within(country_boundary)
         
-        return df[mask].copy()
+        # Ensure we return a regular pandas DataFrame, not a GeoDataFrame
+        result = df[mask].copy()
+        return pd.DataFrame(result)
         
     except Exception as e:
         print(f"Warning: Could not filter by country boundary: {e}")
         # If boundary not available, return original dataframe
-        return df.copy()
+        return pd.DataFrame(df.copy())
 

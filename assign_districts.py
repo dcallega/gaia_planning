@@ -2,6 +2,7 @@
 Batch assign districts to facilities and clinic data using spatial joins
 """
 import pandas as pd
+from data_utils import ensure_population_csv
 from spatial_utils import assign_districts_to_dataframe
 
 def parse_gps_coordinates(gps_string):
@@ -112,7 +113,8 @@ def assign_districts_to_population():
     print("Loading population data (sample)...")
     
     # Load a smaller sample
-    df = pd.read_csv('data/mwi_general_2020.csv', nrows=1000)
+    csv_path = ensure_population_csv('general')
+    df = pd.read_csv(csv_path, nrows=1000)
     
     print(f"Loaded {len(df)} population points (sample)")
     
