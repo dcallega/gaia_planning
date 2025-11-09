@@ -1,0 +1,203 @@
+Field,Label,Value
+id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+title,Title of Dataset,Malawi: High Resolution Population Density Maps
+name,Dataset URL,highresolutionpopulationdensitymaps-mwi
+notes,Description,V1.5 The world's most accurate population datasets. Seven maps/datasets for the distribution of various populations in Malawi: (1) Overall population density (2) Women (3) Men (4) Children (ages 0-5) (5) Youth (ages 15-24) (6) Elderly (ages 60+) (7) Women of reproductive age (ages 15-49).
+dataset_source,Source,Data for Good at Meta
+organization,Contributor,AI and Data for Good at Meta
+dataset_date,Reference Period,[2019-05-20T00:00:00 TO 2021-08-07T23:59:59]
+last_modified,Updated,2021-08-07T00:34:07.945440
+data_update_frequency,Expected Update Frequency,Never
+groups,Location,Malawi
+license_title,License,Creative Commons Attribution International (CC BY)
+methodology,Methodology,Other
+methodology_other,Define Methodology,"To create our high-resolution maps, we use machine learning techniques to identify buildings from commercially available satellite images. Then we work with our partners at Columbia University to overlay general population estimates based on publicly available census data and other population statistics. The resulting maps are the most detailed and actionable tools available for aid and research organizations. For more information about the methodology used to create our high resolution population density maps and the demographic distributions, please visit: https://dataforgood.fb.com/docs/methodology-high-resolution-population-density-maps-demographic-estimates/
+
+For information about how to use HDX to access these datasets, please visit: https://dataforgood.fb.com/docs/high-resolution-population-density-maps-demographic-estimates-documentation/
+
+Adjustments to match the census population with the UN estimates are applied at the national level. The UN estimate for a given country (or state/territory) is divided by the total census estimate of population for the given country. The resulting adjustment factor is multiplied by each administrative unit census value for the target year. This preserves the relative population totals across administrative units while matching the UN total. More information can be found here: https://dataforgood.fb.com/docs/census-information-for-high-resolution-population-density-maps/"
+caveats,Caveats/Comments,"To reference this data, please use the following citation: Facebook Connectivity Lab and Center for International Earth Science Information Network - CIESIN - Columbia University. 2016. High Resolution Settlement Layer (HRSL). Source imagery for HRSL © 2016 DigitalGlobe. Accessed DAY MONTH YEAR.""
+Please note that as of 2024, Meta’s high resolution population density maps are no longer being updated."
+tags,Tags,"baseline population, children, elderly, geodata, health, women, youth"
+resource_1_created,Created,2019-04-18T13:10:40.990044
+resource_1_description,Description,
+resource_1_format,File Format,GeoTIFF
+resource_1_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/d83a3bad-b72a-4e4e-9be9-93b4c654ac0f/download/mwi_general_2020_geotiff.zip
+resource_1_id,Resource ID,d83a3bad-b72a-4e4e-9be9-93b4c654ac0f
+resource_1_last_modified,Updated,2021-08-07T00:26:20.529206
+resource_1_metadata_modified,Metadata Updated,2023-03-03T03:32:24.793528
+resource_1_microdata,Microdata,False
+resource_1_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_1_resource_type,Resource Type,file.upload
+resource_1_name,Resource Name,mwi_general_2020_geotiff.zip
+resource_1_mimetype,MIME Type,application/zip
+resource_1_size,Size,19.8M
+resource_2_created,Created,2019-05-20T20:19:26.925408
+resource_2_description,Description,
+resource_2_format,File Format,CSV
+resource_2_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/18dc65b1-f84f-4248-9068-5057e14e9fe9/download/mwi_general_2020_csv.zip
+resource_2_id,Resource ID,18dc65b1-f84f-4248-9068-5057e14e9fe9
+resource_2_last_modified,Updated,2021-08-07T00:26:58.816913
+resource_2_metadata_modified,Metadata Updated,2025-04-08T17:41:21.125263
+resource_2_microdata,Microdata,False
+resource_2_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_2_resource_type,Resource Type,file.upload
+resource_2_name,Resource Name,mwi_general_2020_csv.zip
+resource_2_mimetype,MIME Type,application/zip
+resource_2_size,Size,23.6M
+resource_3_created,Created,2021-08-07T00:27:36.741109
+resource_3_description,Description,
+resource_3_format,File Format,CSV
+resource_3_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/fee5c974-cc51-4e05-89df-c6df10c2fc60/download/mwi_youth_15_24_2020_csv.zip
+resource_3_id,Resource ID,fee5c974-cc51-4e05-89df-c6df10c2fc60
+resource_3_last_modified,Updated,2021-08-07T00:27:36.289965
+resource_3_metadata_modified,Metadata Updated,2025-04-08T17:41:25.619969
+resource_3_microdata,Microdata,False
+resource_3_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_3_resource_type,Resource Type,file.upload
+resource_3_name,Resource Name,mwi_youth_15_24_2020_csv.zip
+resource_3_mimetype,MIME Type,application/zip
+resource_3_size,Size,23.7M
+resource_4_created,Created,2021-08-07T00:28:13.940741
+resource_4_description,Description,
+resource_4_format,File Format,CSV
+resource_4_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/6bbe77b4-54df-4035-a8a0-7168f78b5bae/download/mwi_women_of_reproductive_age_15_49_2020_csv.zip
+resource_4_id,Resource ID,6bbe77b4-54df-4035-a8a0-7168f78b5bae
+resource_4_last_modified,Updated,2021-08-07T00:28:13.418102
+resource_4_metadata_modified,Metadata Updated,2025-04-08T17:41:26.301884
+resource_4_microdata,Microdata,False
+resource_4_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_4_resource_type,Resource Type,file.upload
+resource_4_name,Resource Name,mwi_women_of_reproductive_age_15_49_2020_csv.zip
+resource_4_mimetype,MIME Type,application/zip
+resource_4_size,Size,23.7M
+resource_5_created,Created,2021-08-07T00:28:52.355349
+resource_5_description,Description,
+resource_5_format,File Format,CSV
+resource_5_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/4675b46d-c5d5-43a9-9921-05dde646a2d4/download/mwi_men_2020_csv.zip
+resource_5_id,Resource ID,4675b46d-c5d5-43a9-9921-05dde646a2d4
+resource_5_last_modified,Updated,2021-08-07T00:28:51.739359
+resource_5_metadata_modified,Metadata Updated,2025-04-08T17:41:30.378133
+resource_5_microdata,Microdata,False
+resource_5_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_5_resource_type,Resource Type,file.upload
+resource_5_name,Resource Name,mwi_men_2020_csv.zip
+resource_5_mimetype,MIME Type,application/zip
+resource_5_size,Size,23.7M
+resource_6_created,Created,2021-08-07T00:29:29.549068
+resource_6_description,Description,
+resource_6_format,File Format,CSV
+resource_6_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/809ba14a-8635-4aee-8a77-147f8f11c3bb/download/mwi_women_2020_csv.zip
+resource_6_id,Resource ID,809ba14a-8635-4aee-8a77-147f8f11c3bb
+resource_6_last_modified,Updated,2021-08-07T00:29:28.829714
+resource_6_metadata_modified,Metadata Updated,2025-04-08T17:41:30.969890
+resource_6_microdata,Microdata,False
+resource_6_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_6_resource_type,Resource Type,file.upload
+resource_6_name,Resource Name,mwi_women_2020_csv.zip
+resource_6_mimetype,MIME Type,application/zip
+resource_6_size,Size,23.6M
+resource_7_created,Created,2021-08-07T00:30:07.165149
+resource_7_description,Description,
+resource_7_format,File Format,CSV
+resource_7_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/bb3bdf2c-924b-449e-969d-371c10c27d92/download/mwi_elderly_60_plus_2020_csv.zip
+resource_7_id,Resource ID,bb3bdf2c-924b-449e-969d-371c10c27d92
+resource_7_last_modified,Updated,2021-08-07T00:30:06.327530
+resource_7_metadata_modified,Metadata Updated,2025-04-08T17:41:35.506593
+resource_7_microdata,Microdata,False
+resource_7_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_7_resource_type,Resource Type,file.upload
+resource_7_name,Resource Name,mwi_elderly_60_plus_2020_csv.zip
+resource_7_mimetype,MIME Type,application/zip
+resource_7_size,Size,23.7M
+resource_8_created,Created,2021-08-07T00:30:46.273941
+resource_8_description,Description,
+resource_8_format,File Format,CSV
+resource_8_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/23e0da95-a7bf-4454-af53-35059efeed69/download/mwi_children_under_five_2020_csv.zip
+resource_8_id,Resource ID,23e0da95-a7bf-4454-af53-35059efeed69
+resource_8_last_modified,Updated,2021-08-07T00:30:45.432775
+resource_8_metadata_modified,Metadata Updated,2025-04-08T17:41:36.182735
+resource_8_microdata,Microdata,False
+resource_8_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_8_resource_type,Resource Type,file.upload
+resource_8_name,Resource Name,mwi_children_under_five_2020_csv.zip
+resource_8_mimetype,MIME Type,application/zip
+resource_8_size,Size,23.7M
+resource_9_created,Created,2021-08-07T00:31:21.960875
+resource_9_description,Description,
+resource_9_format,File Format,GeoTIFF
+resource_9_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/572791d1-3298-47b7-b299-ee3ed6d7ef12/download/mwi_women_of_reproductive_age_15_49_2020_geotiff.zip
+resource_9_id,Resource ID,572791d1-3298-47b7-b299-ee3ed6d7ef12
+resource_9_last_modified,Updated,2021-08-07T00:31:21.005793
+resource_9_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794376
+resource_9_microdata,Microdata,False
+resource_9_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_9_resource_type,Resource Type,file.upload
+resource_9_name,Resource Name,mwi_women_of_reproductive_age_15_49_2020_geotiff.zip
+resource_9_mimetype,MIME Type,application/zip
+resource_9_size,Size,19.9M
+resource_10_created,Created,2021-08-07T00:31:57.491335
+resource_10_description,Description,
+resource_10_format,File Format,GeoTIFF
+resource_10_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/f214fabd-ffcf-48d2-9958-ddeb5def8664/download/mwi_men_2020_geotiff.zip
+resource_10_id,Resource ID,f214fabd-ffcf-48d2-9958-ddeb5def8664
+resource_10_last_modified,Updated,2021-08-07T00:31:56.453164
+resource_10_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794473
+resource_10_microdata,Microdata,False
+resource_10_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_10_resource_type,Resource Type,file.upload
+resource_10_name,Resource Name,mwi_men_2020_geotiff.zip
+resource_10_mimetype,MIME Type,application/zip
+resource_10_size,Size,19.9M
+resource_11_created,Created,2021-08-07T00:32:30.774166
+resource_11_description,Description,
+resource_11_format,File Format,GeoTIFF
+resource_11_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/c6cc692e-084d-443f-9761-6f52a0331fd3/download/mwi_women_2020_geotiff.zip
+resource_11_id,Resource ID,c6cc692e-084d-443f-9761-6f52a0331fd3
+resource_11_last_modified,Updated,2021-08-07T00:32:29.618774
+resource_11_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794569
+resource_11_microdata,Microdata,False
+resource_11_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_11_resource_type,Resource Type,file.upload
+resource_11_name,Resource Name,mwi_women_2020_geotiff.zip
+resource_11_mimetype,MIME Type,application/zip
+resource_11_size,Size,19.9M
+resource_12_created,Created,2021-08-07T00:33:03.696424
+resource_12_description,Description,
+resource_12_format,File Format,GeoTIFF
+resource_12_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/6de83337-c289-437b-b81d-cb1a805c777a/download/mwi_youth_15_24_2020_geotiff.zip
+resource_12_id,Resource ID,6de83337-c289-437b-b81d-cb1a805c777a
+resource_12_last_modified,Updated,2021-08-07T00:33:02.450234
+resource_12_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794665
+resource_12_microdata,Microdata,False
+resource_12_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_12_resource_type,Resource Type,file.upload
+resource_12_name,Resource Name,mwi_youth_15_24_2020_geotiff.zip
+resource_12_mimetype,MIME Type,application/zip
+resource_12_size,Size,19.9M
+resource_13_created,Created,2021-08-07T00:33:36.452151
+resource_13_description,Description,
+resource_13_format,File Format,GeoTIFF
+resource_13_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/be537dd2-258a-459b-b02c-cc3d67d4987c/download/mwi_elderly_60_plus_2020_geotiff.zip
+resource_13_id,Resource ID,be537dd2-258a-459b-b02c-cc3d67d4987c
+resource_13_last_modified,Updated,2021-08-07T00:33:35.067822
+resource_13_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794774
+resource_13_microdata,Microdata,False
+resource_13_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_13_resource_type,Resource Type,file.upload
+resource_13_name,Resource Name,mwi_elderly_60_plus_2020_geotiff.zip
+resource_13_mimetype,MIME Type,application/zip
+resource_13_size,Size,19.8M
+resource_14_created,Created,2021-08-07T00:34:09.347623
+resource_14_description,Description,
+resource_14_format,File Format,GeoTIFF
+resource_14_download_url,Download URL,https://data.humdata.org/dataset/8c2c0b1f-66af-4a8e-b30e-59ad2249ee24/resource/a8a11a89-bf4e-4f7b-b077-dce67e9b1c27/download/mwi_children_under_five_2020_geotiff.zip
+resource_14_id,Resource ID,a8a11a89-bf4e-4f7b-b077-dce67e9b1c27
+resource_14_last_modified,Updated,2021-08-07T00:34:07.945440
+resource_14_metadata_modified,Metadata Updated,2023-03-03T03:32:24.794873
+resource_14_microdata,Microdata,False
+resource_14_dataset_id,Dataset ID,8c2c0b1f-66af-4a8e-b30e-59ad2249ee24
+resource_14_resource_type,Resource Type,file.upload
+resource_14_name,Resource Name,mwi_children_under_five_2020_geotiff.zip
+resource_14_mimetype,MIME Type,application/zip
+resource_14_size,Size,19.9M

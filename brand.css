@@ -1,0 +1,99 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;600&display=swap');
+
+:root{
+  --primary:#3A5A34;
+  --primary-dark:#2f4c2b;
+  --accent:#8A9C86;
+  --bg:#FFFFFF;
+  --surface:#F6F7F9;
+  --text:#111827;
+  --muted:#6B7280;
+  --radius:18px;
+  --shadow:0 12px 28px rgba(16,24,40,.10);
+}
+/* Strip Streamlit chrome */
+#MainMenu, header[data-testid="stHeader"], footer { display:none !important; }
+
+html, body, [data-testid="stAppViewContainer"]{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+.block-container{ max-width:1200px; padding-top:0; padding-bottom:3rem; }
+
+/* Top nav */
+.gaia-nav{
+  position:sticky; top:0; z-index:5;
+  background:#FFFFFF;
+  border-bottom:1px solid rgba(17,24,39,.08);
+}
+.gaia-nav .inner{
+  max-width:1200px; margin:0 auto; padding:1rem 0.5rem;
+  display:flex; align-items:center; gap:1rem; justify-content:space-between;
+}
+.gaia-brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:-.01em; }
+.gaia-bracket{ font-weight:900; color:var(--primary); }
+.gaia-title{ font-family:'Poppins', sans-serif; font-size:1.05rem; }
+
+/* Hero (solid evergreen, like the site) */
+.hero-lite{
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #3A5A34 0%, #324E2D 100%);
+  color:#fff;
+  box-shadow: var(--shadow);
+  padding: 2.2rem 2.4rem;
+  margin: 1.2rem 0 1.6rem;
+}
+.hero-lite h1{ margin:0 0 .4rem 0; font-family:'Poppins', sans-serif; font-weight:800; letter-spacing:-.01em; font-size:2.2rem; }
+.hero-lite p{ margin:0; font-style:italic; font-size:1.15rem; opacity:.95; }
+
+/* Cards */
+.card{ background:var(--surface); border-radius:var(--radius); padding:1.25rem 1.4rem; box-shadow: var(--shadow); border:1px solid rgba(2,6,23,.06); }
+.card h3{ margin:0 0 .35rem; font-weight:800; letter-spacing:-.01em; font-family:'Poppins', sans-serif; }
+.muted{ color:var(--muted); }
+
+/* Buttons */
+.stButton > button{
+  border-radius:999px; background:var(--primary); color:#fff; border:none;
+  padding:.7rem 1rem; font-weight:700; box-shadow: var(--shadow);
+}
+.stButton > button:hover{ background:var(--primary-dark); transition:.15s; transform: translateY(-1px); }
+
+/* Checkbox and select accents */
+[data-testid="stCheckbox"] input:checked { accent-color: var(--primary); }
+.stSelectbox [data-baseweb="select"] div[role="combobox"]{ border-radius:12px; }
+
+/* Section label */
+.eyebrow{ text-transform:uppercase; letter-spacing:.06em; font-size:.75rem; color:var(--muted); font-weight:700; }
+
+/* Sidebar styling */
+.css-1d391kg, [data-testid="stSidebar"]{
+  background: var(--surface);
+  border-right:1px solid rgba(17,24,39,.08);
+}
+
+/* Metric cards */
+[data-testid="metric-container"]{
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1rem;
+  border:1px solid rgba(2,6,23,.06);
+  box-shadow: var(--shadow);
+}
+
+/* Footer */
+.footer{
+  margin-top: 3rem;
+  padding: 2rem 0 1rem 0;
+  border-top: 1px solid rgba(17,24,39,.08);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Spinner */
+.stSpinner > div{
+  border-color: var(--primary) !important;
+}
+
+
