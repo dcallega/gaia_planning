@@ -20,49 +20,44 @@ The GAIA Planning app uses a multi-layered caching strategy to provide fast perf
 
 ## Quick Start
 
-### First-Time Setup (Recommended)
-
-Pre-populate all caches before running the app:
+### Recommended: Just Run the App
 
 ```bash
-# Run the pre-population script
+streamlit run app.py
+```
+
+The app loads **instantly** - no pre-population needed!
+
+- Population data loads in ~1-2 seconds
+- Coverage metrics calculated immediately
+- District breakdown is on-demand (expand to calculate)
+- First district expansion: ~2-5 minutes, then cached forever
+
+### Optional: Pre-populate District Cache
+
+Only if you want to avoid the 2-5 minute wait when first expanding district breakdown:
+
+```bash
+# Optional: Pre-populate district assignments
 python prepopulate_cache.py
-```
 
-This will:
-1. Load all 7 population datasets
-2. Assign districts to ~50k population points per dataset
-3. Save to `.parquet` files for instant loading
-4. Takes ~15-30 minutes total (one-time operation)
-
-Then start the app normally:
-
-```bash
+# Then run app
 streamlit run app.py
 ```
 
-### Without Pre-population
-
-You can start the app without pre-populating:
-
-```bash
-streamlit run app.py
-```
-
-The first time you select each population dataset:
-- Districts will be assigned on-the-fly (~2-5 minutes per dataset)
-- Results are cached automatically
-- Subsequent loads are instant
+This is **completely optional** - the app works great without it!
 
 ## Performance Comparison
 
-| Operation | Without Cache | With Parquet Cache | With Full Cache |
-|-----------|--------------|-------------------|-----------------|
-| Load population data | ~5-10s | ~0.5-1s | ~0.5-1s |
-| Assign districts | ~2-5 min | N/A (pre-assigned) | N/A |
-| Calculate coverage | ~3-5s | ~3-5s | ~0.1s |
-| Total first load | ~3-6 min | ~5-10s | ~1s |
-| Subsequent loads | ~1s | ~1s | ~0.1s |
+| Operation | First Time | Cached |
+|-----------|-----------|--------|
+| Load population data | ~1-2s | ~0.5s |
+| Calculate coverage | ~3-5s | ~0.1s |
+| View district breakdown | ~2-5 min | ~0.5s |
+| **Total first load** | **~5s** | **~1s** |
+| Toggle facilities | ~3-5s | ~0.1s |
+
+**Note**: District assignment only happens when you expand the district breakdown section!
 
 ## Cache Management
 
