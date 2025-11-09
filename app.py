@@ -31,9 +31,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Info about multiple pages
-st.info("📊 **New!** Check out the **Coverage Analysis** page in the sidebar to explore coverage metrics by facility ownership (Government vs CHAM vs Private).")
-
 # Function to parse GPS coordinates
 def parse_gps_coordinates(gps_string):
     """Parse GPS string format: 'lat lon elevation accuracy'"""
@@ -111,14 +108,14 @@ def load_population_data(dataset_name):
     return df
 
 # Sidebar controls
-st.sidebar.markdown("### ⚙️ Map Controls")
-st.sidebar.markdown("---")
+st.sidebar.markdown("### 🎯 Data Layers")
 
-# Layer visibility controls
-st.sidebar.markdown("**Layer Visibility**")
-show_clinics = st.sidebar.checkbox("🚐 GAIA Mobile Clinic Locations", value=True)
-show_mhfr = st.sidebar.checkbox("🏥 Health Facilities (MHFR)", value=True)
-show_population = st.sidebar.checkbox("📊 Population Density Heatmap", value=True)
+# Main layer toggles
+show_clinics = st.sidebar.checkbox("🚐 GAIA Mobile Clinics", value=True)
+show_mhfr = st.sidebar.checkbox("🏥 Health Facilities", value=True)
+show_population = st.sidebar.checkbox("📊 Population Density", value=True)
+
+st.sidebar.markdown("---")
 
 # Population dataset selector
 population_datasets = {
@@ -131,61 +128,68 @@ population_datasets = {
     "Women of Reproductive Age (15-49)": "women_of_reproductive_age_15_49"
 }
 
-selected_dataset = st.sidebar.selectbox(
-    "Population Dataset",
-    options=list(population_datasets.keys()),
-    index=0
-)
+if show_population:
+    st.sidebar.markdown("### 👥 Population Data")
+    selected_dataset = st.sidebar.selectbox(
+        "Select Dataset",
+        options=list(population_datasets.keys()),
+        index=0,
+        label_visibility="collapsed"
+    )
+else:
+    selected_dataset = "General Population"
 
 # Load data
 try:
     clinic_df = load_clinic_data()
     mhfr_df = load_mhfr_facilities()
     
-    # Display clinic statistics
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("### 📊 Clinic Statistics")
-    st.sidebar.metric("Total Clinic Stops", len(clinic_df))
-    st.sidebar.metric("Unique Clinics", clinic_df['clinic_name'].nunique())
-    
-    # Filter by clinic
-    clinic_names = ["All"] + sorted(clinic_df['clinic_name'].unique().tolist())
-    selected_clinic = st.sidebar.selectbox("Filter by Clinic", clinic_names)
-    
-    if selected_clinic != "All":
-        clinic_df = clinic_df[clinic_df['clinic_name'] == selected_clinic]
+    # GAIA Clinic filters
+    if show_clinics:
+        st.sidebar.markdown("---")
+        st.sidebar.markdown("### 🚐 GAIA Clinics")
+        clinic_names = ["All Clinics"] + sorted(clinic_df['clinic_name'].unique().tolist())
+        selected_clinic = st.sidebar.selectbox(
+            "Filter",
+            clinic_names,
+            label_visibility="collapsed"
+        )
+        
+        if selected_clinic != "All Clinics":
+            clinic_df = clinic_df[clinic_df['clinic_name'] == selected_clinic]
     
     # MHFR Facilities filters
     if show_mhfr:
         st.sidebar.markdown("---")
-        st.sidebar.markdown("### 🏥 MHFR Facilities Filters")
+        st.sidebar.markdown("### 🏥 Health Facilities")
         
-        # Status filter
-        status_options = ["All"] + sorted(mhfr_df['status'].unique().tolist())
-        selected_status = st.sidebar.multiselect(
-            "Status", 
-            options=status_options,
-            default=["Functional"]
-        )
-        
-        # Ownership filter
-        ownership_options = sorted(mhfr_df['ownership'].unique().tolist())
-        selected_ownership = st.sidebar.multiselect(
-            "Ownership",
-            options=ownership_options,
-            default=ownership_options
-        )
-        
-        # Type filter
-        type_options = sorted(mhfr_df['type'].unique().tolist())
-        selected_types = st.sidebar.multiselect(
-            "Facility Type",
-            options=type_options,
-            default=type_options
-        )
+        with st.sidebar.expander("⚙️ Filter Options", expanded=False):
+            # Status filter
+            status_options = sorted(mhfr_df['status'].unique().tolist())
+            selected_status = st.multiselect(
+                "Status", 
+                options=status_options,
+                default=["Functional"]
+            )
+            
+            # Ownership filter
+            ownership_options = sorted(mhfr_df['ownership'].unique().tolist())
+            selected_ownership = st.multiselect(
+                "Ownership",
+                options=ownership_options,
+                default=ownership_options
+            )
+            
+            # Type filter
+            type_options = sorted(mhfr_df['type'].unique().tolist())
+            selected_types = st.multiselect(
+                "Facility Type",
+                options=type_options,
+                default=type_options
+            )
         
         # Apply filters
-        if "All" not in selected_status and len(selected_status) > 0:
+        if len(selected_status) > 0:
             mhfr_df = mhfr_df[mhfr_df['status'].isin(selected_status)]
         
         if len(selected_ownership) > 0:
@@ -193,15 +197,6 @@ try:
         
         if len(selected_types) > 0:
             mhfr_df = mhfr_df[mhfr_df['type'].isin(selected_types)]
-        
-        st.sidebar.metric("MHFR Facilities Shown", len(mhfr_df))
-        
-        # Show breakdown by type
-        if len(mhfr_df) > 0:
-            st.sidebar.markdown("**Facilities by Type:**")
-            type_counts = mhfr_df['type'].value_counts()
-            for ftype, count in type_counts.items():
-                st.sidebar.text(f"  • {ftype}: {count}")
     
     # Load population data
     population_df = None
@@ -209,7 +204,154 @@ try:
         with st.spinner(f"Loading {selected_dataset} data..."):
             population_df = load_population_data(population_datasets[selected_dataset])
             pop_column = f'mwi_{population_datasets[selected_dataset]}_2020'
-            st.sidebar.metric("Population Data Points", f"{len(population_df):,}")
+    
+    # Summary statistics at bottom of sidebar
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 📊 Summary")
+    
+    if show_clinics:
+        st.sidebar.metric("GAIA Clinic Stops", len(clinic_df))
+    
+    if show_mhfr:
+        st.sidebar.metric("Health Facilities", len(mhfr_df))
+    
+    if show_population and population_df is not None:
+        st.sidebar.metric("Population Points", f"{len(population_df):,}")
+    
+    # Interactive Facility Type Legend (before creating layers)
+    st.markdown("---")
+    st.markdown("### 🎨 Facility Type Filter")
+    st.markdown("*Click to toggle facility types*")
+    
+    # Add CSS to style the legend buttons
+    st.markdown("""
+    <style>
+    .legend-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1rem 0;
+        gap: 0.5rem;
+    }
+    .legend-item {
+        text-align: center;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: opacity 0.2s;
+        user-select: none;
+        flex: 1;
+    }
+    .legend-item:hover {
+        opacity: 0.7;
+    }
+    .legend-item.selected {
+        color: #1f1f1f;
+    }
+    .legend-item.unselected {
+        color: #bdbdbd;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    legend_items = [
+        ("Hospital", "🔴"),
+        ("Health Centre", "🟢"),
+        ("Clinic", "🟠"),
+        ("Dispensary", "🟣"),
+        ("Maternity", "🩷"),
+        ("GAIA Mobile", "🔵")
+    ]
+    
+    # Initialize session state for facility visibility
+    if 'facility_visibility' not in st.session_state:
+        st.session_state.facility_visibility = {
+            item[0]: True for item in legend_items if item[0] != "GAIA Mobile"
+        }
+        st.session_state.facility_visibility["GAIA Mobile"] = True
+    
+    # Add global CSS for primary (selected) and secondary (unselected) button styles
+    st.markdown("""
+    <style>
+    /* Selected state - primary buttons with brand green background */
+    .stButton > button[kind="primary"] {
+        background-color: #3A5A34 !important;
+        border: 2px solid #3A5A34 !important;
+        color: white !important;
+        border-radius: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        transition: all 0.2s ease !important;
+        box-shadow: none !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background-color: #2f4c2b !important;
+        border: 2px solid #2f4c2b !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    .stButton > button[kind="primary"]:active {
+        transform: scale(0.98) !important;
+    }
+    .stButton > button[kind="primary"] p {
+        color: white !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Unselected state - secondary buttons with brand green border */
+    .stButton > button[kind="secondary"] {
+        background-color: #f4f6f4 !important;
+        border: 2px solid #3A5A34 !important;
+        color: #3A5A34 !important;
+        border-radius: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        transition: all 0.2s ease !important;
+        box-shadow: none !important;
+    }
+    .stButton > button[kind="secondary"]:hover {
+        background-color: #e8ebe7 !important;
+        border: 2px solid #2f4c2b !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    }
+    .stButton > button[kind="secondary"]:active {
+        transform: scale(0.98) !important;
+    }
+    .stButton > button[kind="secondary"] p {
+        color: #3A5A34 !important;
+        font-size: 0.95rem !important;
+        font-weight: 500 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Create clickable legend items
+    legend_cols = st.columns(6)
+    facility_visibility = {}
+    
+    for col_idx, (col, (facility_type, emoji)) in enumerate(zip(legend_cols, legend_items)):
+        with col:
+            # Get current state (including GAIA Mobile now)
+            if facility_type == "GAIA Mobile":
+                # Check if GAIA Mobile has its own state, otherwise inherit from show_clinics
+                if 'gaia_mobile_visible' not in st.session_state:
+                    st.session_state.gaia_mobile_visible = show_clinics
+                is_visible = st.session_state.gaia_mobile_visible
+            else:
+                is_visible = st.session_state.facility_visibility.get(facility_type, True)
+            
+            # Create button (icon and text on same line)
+            # Use "primary" type for selected, "secondary" for unselected
+            button_text = f"{emoji} {facility_type}"
+            button_type = "primary" if is_visible else "secondary"
+            
+            if st.button(button_text, key=f"btn_{facility_type}", use_container_width=True, type=button_type):
+                if facility_type == "GAIA Mobile":
+                    st.session_state.gaia_mobile_visible = not is_visible
+                else:
+                    st.session_state.facility_visibility[facility_type] = not is_visible
+                st.rerun()
+            
+            facility_visibility[facility_type] = is_visible
     
     # Create map layers
     layers = []
@@ -261,37 +403,42 @@ try:
             'Unclassified': [128, 128, 128, 180]  # Gray
         }
         
-        # Add hospitals separately (larger and more prominent)
+        # Add hospitals separately (larger and more prominent) - only if Hospital is visible
         # Include both "Hospital" and "District Hospital" types
         hospital_types = ['Hospital', 'District Hospital', 'Central Hospital']
-        hospitals_df = mhfr_df[mhfr_df['type'].isin(hospital_types)].copy()
-        
-        # Ensure clean data for pydeck
-        hospitals_df = hospitals_df.dropna(subset=['latitude', 'longitude'])
-        hospitals_df = hospitals_df[(hospitals_df['latitude'].notna()) & (hospitals_df['longitude'].notna())]
-        
-        if len(hospitals_df) > 0:
-            layers.append(
-                pdk.Layer(
-                    "ScatterplotLayer",
-                    data=hospitals_df,
-                    get_position=['longitude', 'latitude'],
-                    get_color=facility_colors.get('Hospital', [220, 20, 60, 220]),
-                    get_radius=3000,  # Even larger radius for hospitals
-                    pickable=True,
-                    opacity=0.9,
-                    stroked=True,
-                    filled=True,
-                    line_width_min_pixels=3,
-                    get_line_color=[139, 0, 0],  # Dark red border
-                    radius_min_pixels=8,
-                    radius_max_pixels=80,
+        if facility_visibility.get('Hospital', True):
+            hospitals_df = mhfr_df[mhfr_df['type'].isin(hospital_types)].copy()
+            
+            # Ensure clean data for pydeck
+            hospitals_df = hospitals_df.dropna(subset=['latitude', 'longitude'])
+            hospitals_df = hospitals_df[(hospitals_df['latitude'].notna()) & (hospitals_df['longitude'].notna())]
+            
+            if len(hospitals_df) > 0:
+                layers.append(
+                    pdk.Layer(
+                        "ScatterplotLayer",
+                        data=hospitals_df,
+                        get_position=['longitude', 'latitude'],
+                        get_color=facility_colors.get('Hospital', [220, 20, 60, 220]),
+                        get_radius=3000,  # Even larger radius for hospitals
+                        pickable=True,
+                        opacity=0.9,
+                        stroked=True,
+                        filled=True,
+                        line_width_min_pixels=3,
+                        get_line_color=[139, 0, 0],  # Dark red border
+                        radius_min_pixels=8,
+                        radius_max_pixels=80,
+                    )
                 )
-            )
         
-        # Add other facility types (excluding hospitals)
+        # Add other facility types (excluding hospitals) - only if visible
         other_facilities = mhfr_df[~mhfr_df['type'].isin(hospital_types)].copy()
         for facility_type in other_facilities['type'].unique():
+            # Check if this facility type should be visible
+            if not facility_visibility.get(facility_type, True):
+                continue
+                
             type_df = other_facilities[other_facilities['type'] == facility_type].copy()
             
             # Ensure clean data for pydeck
@@ -320,7 +467,9 @@ try:
                 )
     
     # Clinic locations layer (GAIA clinics)
-    if show_clinics and len(clinic_df) > 0:
+    # Check both show_clinics (sidebar) and gaia_mobile_visible (legend filter)
+    gaia_visible = show_clinics and st.session_state.get('gaia_mobile_visible', True)
+    if gaia_visible and len(clinic_df) > 0:
         # Ensure clean data for pydeck
         clinic_clean = clinic_df.copy()
         clinic_clean = clinic_clean.dropna(subset=['latitude', 'longitude'])
@@ -425,11 +574,14 @@ try:
         st.write(f"**Map Center:** Lat={center_lat:.4f}, Lon={center_lon:.4f}")
         st.write(f"**Number of layers:** {len(layers)}")
         
-        if show_clinics:
-            st.write(f"**GAIA Clinics:** {len(clinic_df)} facilities")
+        gaia_visible = show_clinics and st.session_state.get('gaia_mobile_visible', True)
+        if gaia_visible:
+            st.write(f"**GAIA Clinics:** {len(clinic_df)} facilities (visible)")
             if len(clinic_df) > 0:
                 st.write(f"  - Lat range: {clinic_df['latitude'].min():.4f} to {clinic_df['latitude'].max():.4f}")
                 st.write(f"  - Lon range: {clinic_df['longitude'].min():.4f} to {clinic_df['longitude'].max():.4f}")
+        elif show_clinics:
+            st.write(f"**GAIA Clinics:** {len(clinic_df)} facilities (hidden by filter)")
         
         if show_mhfr:
             st.write(f"**MHFR Facilities:** {len(mhfr_df)} facilities")
@@ -438,47 +590,6 @@ try:
                 st.write(f"  - Lon range: {mhfr_df['longitude'].min():.4f} to {mhfr_df['longitude'].max():.4f}")
                 st.write(f"  - Sample coordinates:")
                 st.dataframe(mhfr_df[['common_name', 'latitude', 'longitude', 'type']].head(5))
-    
-    # Display legend for MHFR facilities
-    if show_mhfr and len(mhfr_df) > 0:
-        st.markdown("---")
-        st.markdown("### 🎨 Facility Type Legend")
-        
-        legend_cols = st.columns(6)
-        legend_items = [
-            ("Hospital", "🔴"),
-            ("Health Centre", "🟢"),
-            ("Clinic", "🟠"),
-            ("Dispensary", "🟣"),
-            ("Maternity", "🩷"),
-            ("GAIA Mobile", "🔵")
-        ]
-        
-        for col, (facility_type, emoji) in zip(legend_cols, legend_items):
-            with col:
-                st.markdown(f"{emoji} **{facility_type}**")
-    
-    # Display MHFR facility data table
-    if show_mhfr and len(mhfr_df) > 0:
-        st.markdown("---")
-        st.markdown("### 🏥 MHFR Facilities Details")
-        display_cols = ['common_name', 'type', 'ownership', 'status', 'district', 'latitude', 'longitude']
-        st.dataframe(
-            mhfr_df[display_cols].sort_values(['type', 'common_name']),
-            use_container_width=True,
-            hide_index=True
-        )
-    
-    # Display clinic data table
-    if show_clinics:
-        st.markdown("---")
-        st.markdown("### 🚐 GAIA Clinic Stop Details")
-        display_cols = ['clinic_name', 'clinic_stop', 'latitude', 'longitude']
-        st.dataframe(
-            clinic_df[display_cols].sort_values('clinic_name'),
-            use_container_width=True,
-            hide_index=True
-        )
     
     # Display population statistics
     if show_population and population_df is not None:
