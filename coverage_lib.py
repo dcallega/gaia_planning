@@ -19,12 +19,13 @@ from typing import Tuple, Dict, List, Optional
 from collections import defaultdict
 
 # Constants
-EARTH_RADIUS_KM = 6371.0088
 DEFAULT_SERVICE_RADIUS_KM = 5.0
 
 
 class CoverageAnalyzer:
     """Main class for healthcare coverage analysis."""
+    
+    EARTH_RADIUS_KM = 6371.0088
     
     def __init__(self, service_radius_km: float = DEFAULT_SERVICE_RADIUS_KM):
         """
@@ -34,7 +35,7 @@ class CoverageAnalyzer:
             service_radius_km: Service radius in kilometers (default 5km)
         """
         self.service_radius_km = service_radius_km
-        self.service_radius_rad = service_radius_km / EARTH_RADIUS_KM
+        self.service_radius_rad = service_radius_km / self.EARTH_RADIUS_KM
         self.facilities_df = None
         self.tree = None
         
@@ -315,7 +316,7 @@ class CoverageAnalyzer:
         
         print(f"\nIdentifying coverage gaps (>{max_distance_km} km from any facility)...")
         
-        max_distance_rad = max_distance_km / EARTH_RADIUS_KM
+        max_distance_rad = max_distance_km / self.EARTH_RADIUS_KM
         gaps = []
         chunks_processed = 0
         
@@ -333,7 +334,7 @@ class CoverageAnalyzer:
             # Find distance to nearest facility
             dist_rad, _ = self.tree.query(coords_rad, k=1)
             dist_rad = dist_rad.ravel()
-            dist_km = dist_rad * EARTH_RADIUS_KM
+            dist_km = dist_rad * self.EARTH_RADIUS_KM
             
             # Filter to gaps
             gap_mask = dist_rad > max_distance_rad
@@ -375,7 +376,7 @@ def haversine_distance_km(lat1: float, lon1: float, lat2: float, lon2: float) ->
     a = np.sin(dlat/2)**2 + np.cos(lat1_rad) * np.cos(lat2_rad) * np.sin(dlon/2)**2
     c = 2 * np.arcsin(np.sqrt(a))
     
-    return c * EARTH_RADIUS_KM
+    return c * CoverageAnalyzer.EARTH_RADIUS_KM
 
 
 def get_hospitals(facilities_df: pd.DataFrame) -> pd.DataFrame:

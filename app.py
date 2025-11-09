@@ -17,13 +17,6 @@ st.set_page_config(
     page_title="GAIA Planning", page_icon="assets/gaia_icon.png", layout="wide"
 )
 
-# Ensure population CSVs are available (extract from bundled zips if needed)
-try:
-    ensure_all_population_csvs()
-except FileNotFoundError as e:
-    # Surface a warning in Streamlit but keep app running
-    st.warning(str(e))
-
 # Load brand CSS
 try:
     with open("brand.css") as f:

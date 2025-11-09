@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from scipy.spatial import cKDTree
 from app import render_navigation
 from data_utils import ensure_population_csv
 from spatial_utils import filter_points_in_country
+from coverage_lib import CoverageAnalyzer  # Import the correct analyzer
 
 st.set_page_config(
     page_title="Coverage Analysis", page_icon="assets/gaia_icon.png", layout="wide"
@@ -146,43 +146,6 @@ def load_population_data(dataset_name):
     return df
 
 
-# Function to calculate coverage
-@st.cache_data
-def calculate_coverage(population_df, facilities_df, radius_km, pop_column):
-    """
-    Calculate what percentage of population is within radius_km of any facility
-    """
-    if len(facilities_df) == 0:
-        return 0, 0, population_df.copy()
-
-    # Create KD-Tree for fast spatial queries
-    # Convert km to degrees (rough approximation: 1 degree ≈ 111 km)
-    radius_degrees = radius_km / 111.0
-
-    # Build tree from facilities
-    facility_coords = facilities_df[["latitude", "longitude"]].values
-    tree = cKDTree(facility_coords)
-
-    # Query for each population point
-    pop_coords = population_df[["latitude", "longitude"]].values
-    distances, _ = tree.query(pop_coords)
-
-    # Mark points within radius
-    covered = distances <= radius_degrees
-
-    # Calculate coverage
-    total_pop = population_df[pop_column].sum()
-    covered_pop = population_df.loc[covered, pop_column].sum()
-    coverage_pct = (covered_pop / total_pop * 100) if total_pop > 0 else 0
-
-    # Add coverage info to dataframe
-    result_df = population_df.copy()
-    result_df["covered"] = covered
-    result_df["distance_km"] = distances * 111.0  # Convert back to km
-
-    return covered_pop, coverage_pct, result_df
-
-
 # Helper function to calculate Gini coefficient
 def calculate_gini(distances, weights):
     """Calculate Gini coefficient for access distribution"""
@@ -215,35 +178,7 @@ def calculate_gini(distances, weights):
             cum_distances_norm[i] + cum_distances_norm[i - 1]
         )
 
-    return 1 - 2 * gini
-
-
-# Function to identify healthcare desert zones
-def identify_desert_zones(population_df, facilities_df, threshold_km, pop_column):
-    """Identify areas with no access within threshold_km"""
-    if len(facilities_df) == 0:
-        # All areas are deserts if no facilities
-        desert_pop = population_df[pop_column].sum()
-        return len(population_df), desert_pop, population_df.copy()
-
-    # Calculate distances
-    radius_degrees = threshold_km / 111.0
-    facility_coords = facilities_df[["latitude", "longitude"]].values
-    tree = cKDTree(facility_coords)
-    pop_coords = population_df[["latitude", "longitude"]].values
-    distances, _ = tree.query(pop_coords)
-    distances_km = distances * 111.0
-
-    # Identify deserts (areas beyond threshold)
-    is_desert = distances_km > threshold_km
-    desert_df = population_df.copy()
-    desert_df["is_desert"] = is_desert
-    desert_df["distance_km"] = distances_km
-
-    num_desert_areas = is_desert.sum()
-    desert_pop = population_df.loc[is_desert, pop_column].sum()
-
-    return num_desert_areas, desert_pop, desert_df
+    return 1 - gini
 
 
 # Load data
@@ -362,18 +297,38 @@ try:
     with st.spinner(f"Loading {selected_dataset} data..."):
         population_df = load_population_data(population_datasets[selected_dataset])
         pop_column = f"mwi_{population_datasets[selected_dataset]}_2020"
+        pop_csv_path = str(ensure_population_csv(population_datasets[selected_dataset]))
+
+    # Initialize Coverage Analyzer
+    analyzer = CoverageAnalyzer(service_radius_km=coverage_radius)
+    if not all_facilities.empty:
+        # Use different column names for the analyzer
+        facilities_for_analyzer = all_facilities.rename(columns={'latitude': 'lat', 'longitude': 'lon'})
+        analyzer.facilities_df = facilities_for_analyzer
+        analyzer.build_spatial_index()
 
     # Calculate overall coverage
     with st.spinner("Calculating coverage..."):
-        covered_pop, coverage_pct, pop_with_coverage = calculate_coverage(
-            population_df, all_facilities, 5, pop_column  # Use 5km for overall coverage
-        )
+        coverage_results = None
+        if analyzer.tree is not None:
+            # Use 5km for overall coverage metric
+            analyzer.service_radius_km = 5.0
+            analyzer.service_radius_rad = 5.0 / analyzer.EARTH_RADIUS_KM
+            coverage_results = analyzer.compute_basic_coverage(pop_csv_path)
 
-        # Calculate coverage at selected radius for other metrics
-        _, _, pop_with_coverage_selected = calculate_coverage(
-            population_df, all_facilities, coverage_radius, pop_column
-        )
-
+        # For desert zones and other metrics, use the selected radius
+        analyzer.service_radius_km = coverage_radius
+        analyzer.service_radius_rad = coverage_radius / analyzer.EARTH_RADIUS_KM
+        
+        # We need distances for Gini and other stats, which compute_basic_coverage doesn't return.
+        # So we'll get gaps with a 0km threshold to get all points with distances.
+        pop_with_distances = None
+        if analyzer.tree is not None:
+             pop_coords_rad = np.deg2rad(population_df[["latitude", "longitude"]].to_numpy(dtype=np.float64))
+             dist_rad, _ = analyzer.tree.query(pop_coords_rad, k=1)
+             pop_with_distances = population_df.copy()
+             pop_with_distances["distance_km"] = dist_rad.ravel() * analyzer.EARTH_RADIUS_KM
+             
     # ============================================================================
     # SECTION 1: COVERAGE & ACCESS
     # ============================================================================
@@ -390,9 +345,11 @@ try:
         st.metric("Total Population", f"{population_df[pop_column].sum():,.0f}")
 
     with col2:
+        covered_pop = coverage_results['covered'] if coverage_results else 0
         st.metric("Covered Population (5km)", f"{covered_pop:,.0f}")
 
     with col3:
+        coverage_pct = coverage_results['coverage_pct'] if coverage_results else 0
         st.metric("Coverage Percentage (5km)", f"{coverage_pct:.1f}%")
 
     with col4:
@@ -402,12 +359,21 @@ try:
     st.markdown("---")
     st.markdown("### Average Distance to Care")
 
-    distances = pop_with_coverage_selected["distance_km"].values
-    weights = pop_with_coverage_selected[pop_column].values
+    distances = []
+    weights = []
+    if pop_with_distances is not None:
+        distances = pop_with_distances["distance_km"].values
+        weights = pop_with_distances[pop_column].values
 
-    mean_distance = np.average(distances, weights=weights)
-    median_distance = np.median(distances)
-
+    if len(distances) > 0:
+        mean_distance = np.average(distances, weights=weights)
+        # Median is not weighted in numpy, so we'll do an approximation or leave as is.
+        # The previous implementation was also unweighted.
+        median_distance = np.median(distances) 
+    else:
+        mean_distance = 0
+        median_distance = 0
+        
     col1, col2 = st.columns(2)
     with col1:
         st.metric("Mean Distance", f"{mean_distance:.2f} km")
@@ -416,26 +382,27 @@ try:
 
     # Distance distribution histogram
     st.markdown("**Distance Distribution**")
-    distance_bins = [0, 5, 10, 15, 20, 30, 50, 100, float("inf")]
-    distance_labels = [
-        "0-5",
-        "5-10",
-        "10-15",
-        "15-20",
-        "20-30",
-        "30-50",
-        "50-100",
-        "100+",
-    ]
-    pop_with_coverage_selected["distance_bin"] = pd.cut(
-        pop_with_coverage_selected["distance_km"],
-        bins=distance_bins,
-        labels=distance_labels,
-    )
-    distance_dist = pop_with_coverage_selected.groupby(
-        "distance_bin", observed=False
-    )[pop_column].sum()
-    st.bar_chart(distance_dist)
+    if pop_with_distances is not None:
+        distance_bins = [0, 5, 10, 15, 20, 30, 50, 100, float("inf")]
+        distance_labels = [
+            "0-5",
+            "5-10",
+            "10-15",
+            "15-20",
+            "20-30",
+            "30-50",
+            "50-100",
+            "100+",
+        ]
+        pop_with_distances["distance_bin"] = pd.cut(
+            pop_with_distances["distance_km"],
+            bins=distance_bins,
+            labels=distance_labels,
+        )
+        distance_dist = pop_with_distances.groupby(
+            "distance_bin", observed=False
+        )[pop_column].sum()
+        st.bar_chart(distance_dist)
 
     # Healthcare Desert Zones
     st.markdown("---")
@@ -450,15 +417,21 @@ try:
         step=5,
         help="Areas beyond this distance are considered healthcare deserts",
     )
+    
+    desert_df = None
+    if pop_with_distances is not None:
+        desert_mask = pop_with_distances["distance_km"] > desert_threshold
+        desert_df = pop_with_distances[desert_mask]
+        num_deserts = len(desert_df)
+        desert_pop = desert_df[pop_column].sum()
+        desert_pct = (
+            (desert_pop / population_df[pop_column].sum() * 100)
+            if population_df[pop_column].sum() > 0
+            else 0
+        )
+    else:
+        num_deserts, desert_pop, desert_pct = 0, 0, 0
 
-    num_deserts, desert_pop, desert_df = identify_desert_zones(
-        population_df, all_facilities, desert_threshold, pop_column
-    )
-    desert_pct = (
-        (desert_pop / population_df[pop_column].sum() * 100)
-        if population_df[pop_column].sum() > 0
-        else 0
-    )
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -469,12 +442,12 @@ try:
         st.metric("Desert Population %", f"{desert_pct:.1f}%")
 
     # Top 10 largest desert zones by population
-    if num_deserts > 0:
+    if num_deserts > 0 and desert_df is not None:
         st.markdown("**Largest Desert Zones (by population)**")
         top_deserts = (
-            desert_df[desert_df["is_desert"]]
-            .nlargest(10, pop_column)[[pop_column, "distance_km"]]
-            .copy()
+            desert_df.nlargest(10, pop_column)[
+                [pop_column, "distance_km"]
+            ].copy()
         )
         top_deserts.columns = ["Population", "Distance (km)"]
         st.dataframe(top_deserts, width="stretch", hide_index=True)
@@ -502,9 +475,21 @@ try:
         try:
             demo_df = load_population_data(dataset_key)
             demo_pop_col = f"mwi_{dataset_key}_2020"
-            demo_cov_pop, demo_cov_pct, _ = calculate_coverage(
-                demo_df, all_facilities, 5, demo_pop_col
-            )
+            demo_pop_csv = str(ensure_population_csv(dataset_key))
+            
+            # Use analyzer for coverage calculation
+            demo_analyzer = CoverageAnalyzer(service_radius_km=5.0)
+            if not all_facilities.empty:
+                 facilities_for_analyzer = all_facilities.rename(columns={'latitude': 'lat', 'longitude': 'lon'})
+                 demo_analyzer.facilities_df = facilities_for_analyzer
+                 demo_analyzer.build_spatial_index()
+                 demo_coverage_results = demo_analyzer.compute_basic_coverage(demo_pop_csv)
+                 demo_cov_pop = demo_coverage_results['covered']
+                 demo_cov_pct = demo_coverage_results['coverage_pct']
+            else:
+                demo_cov_pop = 0
+                demo_cov_pct = 0
+
             demographic_coverage.append(
                 {
                     "Demographic Group": group_name,
@@ -537,10 +522,12 @@ try:
         "**Gini coefficient of access distribution (0 = perfect equality, 1 = perfect inequality)**"
     )
 
-    distances = pop_with_coverage_selected["distance_km"].values
-    weights = pop_with_coverage_selected[pop_column].values
-
-    gini_coefficient = calculate_gini(distances, weights)
+    if pop_with_distances is not None:
+        distances = pop_with_distances["distance_km"].values
+        weights = pop_with_distances[pop_column].values
+        gini_coefficient = calculate_gini(distances, weights)
+    else:
+        gini_coefficient = 0
 
     col1, col2 = st.columns(2)
     with col1:
@@ -567,39 +554,40 @@ try:
     st.markdown("**Areas with high-risk populations and low access**")
 
     # Identify vulnerable areas: high population density but far from facilities
-    vulnerability_df = pop_with_coverage_selected.copy()
-    vulnerability_df["population_density"] = vulnerability_df[pop_column]
-    vulnerability_df["vulnerability_score"] = (
-        vulnerability_df["population_density"]
-        / vulnerability_df["population_density"].max()
-        * (vulnerability_df["distance_km"] / vulnerability_df["distance_km"].max())
-    )
+    if pop_with_distances is not None:
+        vulnerability_df = pop_with_distances.copy()
+        vulnerability_df["population_density"] = vulnerability_df[pop_column]
+        vulnerability_df["vulnerability_score"] = (
+            vulnerability_df["population_density"]
+            / vulnerability_df["population_density"].max()
+            * (vulnerability_df["distance_km"] / vulnerability_df["distance_km"].max())
+        )
 
-    # Top vulnerable areas
-    top_vulnerable = vulnerability_df.nlargest(20, "vulnerability_score")[
-        [pop_column, "distance_km", "vulnerability_score"]
-    ].copy()
-    top_vulnerable.columns = [
-        "Population",
-        "Distance (km)",
-        "Vulnerability Score",
-    ]
-    top_vulnerable["Vulnerability Score"] = top_vulnerable["Vulnerability Score"].round(
-        4
-    )
+        # Top vulnerable areas
+        top_vulnerable = vulnerability_df.nlargest(20, "vulnerability_score")[
+            [pop_column, "distance_km", "vulnerability_score"]
+        ].copy()
+        top_vulnerable.columns = [
+            "Population",
+            "Distance (km)",
+            "Vulnerability Score",
+        ]
+        top_vulnerable["Vulnerability Score"] = top_vulnerable["Vulnerability Score"].round(
+            4
+        )
 
-    st.markdown("**Top 20 Most Vulnerable Areas**")
-    st.dataframe(top_vulnerable, width="stretch", hide_index=True)
+        st.markdown("**Top 20 Most Vulnerable Areas**")
+        st.dataframe(top_vulnerable, width="stretch", hide_index=True)
 
-    # Vulnerability distribution
-    st.markdown("**Vulnerability Score Distribution**")
-    vuln_bins = pd.qcut(
-        vulnerability_df["vulnerability_score"],
-        q=5,
-        labels=["Very Low", "Low", "Medium", "High", "Very High"],
-    )
-    vuln_dist = vulnerability_df.groupby(vuln_bins)[pop_column].sum()
-    st.bar_chart(vuln_dist)
+        # Vulnerability distribution
+        st.markdown("**Vulnerability Score Distribution**")
+        vuln_bins = pd.qcut(
+            vulnerability_df["vulnerability_score"],
+            q=5,
+            labels=["Very Low", "Low", "Medium", "High", "Very High"],
+        )
+        vuln_dist = vulnerability_df.groupby(vuln_bins, observed=False)[pop_column].sum()
+        st.bar_chart(vuln_dist)
 
     # ============================================================================
     # SECTION 3: CLINIC PERFORMANCE (GAIA Only)
@@ -625,9 +613,16 @@ try:
         for idx, clinic in gaia_only.iterrows():
             # Create a single-facility dataframe
             single_clinic = pd.DataFrame([clinic])
-            est_cov_pop, est_cov_pct, _ = calculate_coverage(
-                population_df, single_clinic, 5, pop_column
-            )
+            
+            # Use analyzer for coverage calculation
+            clinic_analyzer = CoverageAnalyzer(service_radius_km=5.0)
+            facilities_for_analyzer = single_clinic.rename(columns={'latitude': 'lat', 'longitude': 'lon'})
+            clinic_analyzer.facilities_df = facilities_for_analyzer
+            clinic_analyzer.build_spatial_index()
+            est_cov_results = clinic_analyzer.compute_basic_coverage(pop_csv_path)
+            est_cov_pop = est_cov_results['covered']
+            est_cov_pct = est_cov_results['coverage_pct']
+            
             clinic_impact.append(
                 {
                     "Clinic Name": clinic["common_name"],
@@ -709,9 +704,14 @@ try:
             ][pop_column].sum()
 
             single_clinic = pd.DataFrame([clinic])
-            est_cov_pop, _, _ = calculate_coverage(
-                population_df, single_clinic, 5, pop_column
-            )
+
+            # Use analyzer for coverage
+            clinic_analyzer = CoverageAnalyzer(service_radius_km=5.0)
+            facilities_for_analyzer = single_clinic.rename(columns={'latitude': 'lat', 'longitude': 'lon'})
+            clinic_analyzer.facilities_df = facilities_for_analyzer
+            clinic_analyzer.build_spatial_index()
+            est_cov_results = clinic_analyzer.compute_basic_coverage(pop_csv_path)
+            est_cov_pop = est_cov_results['covered']
 
             # If nearby population is high but coverage is low, flag it
             if nearby_pop > 1000 and est_cov_pop < 500:
