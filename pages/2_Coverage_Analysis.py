@@ -64,7 +64,7 @@ def load_clinic_data():
 def normalize_facility_type(facility_type):
     """
     Normalize facility types by grouping similar types together.
-    
+
     Groups:
     - All hospitals (Hospital, District Hospital, Central Hospital) -> "Hospital"
     - Health Centre and Health Post -> "Health Centre"
@@ -72,17 +72,17 @@ def normalize_facility_type(facility_type):
     """
     if pd.isna(facility_type):
         return facility_type
-    
+
     facility_type = str(facility_type).strip()
-    
+
     # Group all hospitals together
     if facility_type in ["Hospital", "District Hospital", "Central Hospital"]:
         return "Hospital"
-    
+
     # Group Health Centre and Health Post together
     if facility_type in ["Health Centre", "Health Post"]:
         return "Health Centre"
-    
+
     # Return original type for others
     return facility_type
 
@@ -140,7 +140,7 @@ def load_population_data(dataset_name):
     df = df[df[pop_column] > 0.1]
 
     # Filter out population points outside the country boundary
-    df = filter_points_in_country(df, lat_col='latitude', lon_col='longitude')
+    df = filter_points_in_country(df, lat_col="latitude", lon_col="longitude")
 
     return df
 
@@ -327,7 +327,9 @@ try:
         filtered_mhfr = filtered_mhfr[filtered_mhfr["type"].isin(selected_types)]
     else:
         # If no types selected, filter out all facilities
-        filtered_mhfr = filtered_mhfr.iloc[0:0].copy()  # Create empty dataframe with same structure
+        filtered_mhfr = filtered_mhfr.iloc[
+            0:0
+        ].copy()  # Create empty dataframe with same structure
 
     if len(selected_status) > 0:
         filtered_mhfr = filtered_mhfr[filtered_mhfr["status"].isin(selected_status)]
@@ -473,58 +475,6 @@ try:
         )
         top_deserts.columns = ["Population", "Distance (km)"]
         st.dataframe(top_deserts, use_container_width=True, hide_index=True)
-
-    # Trend Over Time (placeholder - would need historical data)
-    st.markdown("---")
-    st.markdown("### Trend Over Time")
-    st.info(
-        "📊 Trend analysis requires historical data. This feature will show coverage improvements as new sites are added over time."
-    )
-
-    # Simulated trend (if we had multiple time points)
-    st.markdown("**Coverage Improvement Simulation**")
-    num_new_sites = st.slider(
-        "Number of New Sites to Add",
-        min_value=0,
-        max_value=50,
-        value=10,
-        step=5,
-        help="Simulate adding new sites to see projected coverage improvement",
-    )
-
-    if num_new_sites > 0 and len(all_facilities) > 0:
-        # Simple simulation: add random sites in high-population areas
-        high_pop_areas = population_df.nlargest(num_new_sites * 10, pop_column)
-        simulated_sites = high_pop_areas.sample(
-            n=min(num_new_sites, len(high_pop_areas)), random_state=42
-        )
-        simulated_facilities = pd.DataFrame(
-            {
-                "latitude": simulated_sites["latitude"].values,
-                "longitude": simulated_sites["longitude"].values,
-                "common_name": [
-                    f"Simulated Site {i+1}" for i in range(len(simulated_sites))
-                ],
-                "type": "Simulated",
-                "ownership": "Simulated",
-            }
-        )
-
-        combined_facilities = pd.concat(
-            [all_facilities, simulated_facilities], ignore_index=True
-        )
-        sim_cov_pop, sim_cov_pct, _ = calculate_coverage(
-            population_df, combined_facilities, 5, pop_column
-        )
-
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Current Coverage (5km)", f"{coverage_pct:.1f}%")
-        with col2:
-            st.metric("Projected Coverage (5km)", f"{sim_cov_pct:.1f}%")
-
-        improvement = sim_cov_pct - coverage_pct
-        st.metric("Projected Improvement", f"+{improvement:.1f} percentage points")
 
     # ============================================================================
     # SECTION 2: EQUITY METRICS
@@ -781,228 +731,9 @@ try:
             "⚠️ No GAIA clinics found in the selected facilities. Enable 'Include GAIA Mobile Clinics' in the sidebar."
         )
 
-    # ============================================================================
-    # SECTION 4: RECOMMENDATION IMPACT PROJECTIONS
-    # ============================================================================
-    st.markdown("---")
-    st.markdown("## 🎯 Recommendation Impact Projections")
-    st.markdown("**Projected improvements if recommendations are implemented**")
-
-    # Projection controls
-    st.markdown("### Projection Parameters")
-    col1, col2 = st.columns(2)
-
-    with col1:
-        num_recommended_sites = st.number_input(
-            "Number of Recommended Sites",
-            min_value=0,
-            max_value=100,
-            value=10,
-            step=1,
-            help="Number of new sites to add in projections",
-        )
-
-    with col2:
-        recommended_radius = st.slider(
-            "Recommended Site Coverage Radius (km)",
-            min_value=5,
-            max_value=30,
-            value=10,
-            step=5,
-            help="Coverage radius for recommended sites",
-        )
-
-    if num_recommended_sites > 0:
-        # Simulate adding recommended sites
-        st.markdown("---")
-        st.markdown("### If Implemented: Projected Coverage Improvements")
-
-        # Find optimal locations (high population, currently underserved)
-        high_vulnerability = vulnerability_df.nlargest(
-            num_recommended_sites * 5, "vulnerability_score"
-        )
-        recommended_locations = high_vulnerability.sample(
-            n=min(num_recommended_sites, len(high_vulnerability)), random_state=42
-        )
-
-        recommended_facilities = pd.DataFrame(
-            {
-                "latitude": recommended_locations["latitude"].values,
-                "longitude": recommended_locations["longitude"].values,
-                "common_name": [
-                    f"Recommended Site {i+1}" for i in range(len(recommended_locations))
-                ],
-                "type": "Recommended",
-                "ownership": "Recommended",
-            }
-        )
-
-        # Calculate projected coverage
-        projected_facilities = pd.concat(
-            [all_facilities, recommended_facilities], ignore_index=True
-        )
-        proj_cov_pop, proj_cov_pct, _ = calculate_coverage(
-            population_df, projected_facilities, 5, pop_column
-        )
-
-        # Current vs Projected
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Current Coverage (5km)", f"{coverage_pct:.1f}%")
-        with col2:
-            st.metric("Projected Coverage (5km)", f"{proj_cov_pct:.1f}%")
-        with col3:
-            improvement = proj_cov_pct - coverage_pct
-            st.metric(
-                "Improvement", f"+{improvement:.1f} pp", delta=f"+{improvement:.1f}%"
-            )
-
-        # Population Reached
-        st.markdown("---")
-        st.markdown("### Population Reached")
-        additional_pop = proj_cov_pop - covered_pop
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Additional People Served", f"{additional_pop:,.0f}")
-        with col2:
-            st.metric("Total Population Reached", f"{proj_cov_pop:,.0f}")
-
-        # Equity Gains
-        st.markdown("---")
-        st.markdown("### Equity Gains")
-        st.markdown("**Change in disparity metrics**")
-
-        # Calculate projected Gini
-        proj_distances = pop_with_coverage_selected["distance_km"].values.copy()
-        # Update distances for areas near recommended sites
-        for idx, rec_site in recommended_facilities.iterrows():
-            rec_coords = np.array([[rec_site["latitude"], rec_site["longitude"]]])
-            pop_coords = population_df[["latitude", "longitude"]].values
-            rec_tree = cKDTree(rec_coords)
-            rec_distances, _ = rec_tree.query(pop_coords)
-            rec_distances_km = rec_distances * 111.0
-
-            # Update if recommended site is closer
-            proj_distances = np.minimum(proj_distances, rec_distances_km)
-
-        proj_gini = calculate_gini(proj_distances, weights)
-        gini_change = gini_coefficient - proj_gini
-
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Current Gini Coefficient", f"{gini_coefficient:.3f}")
-        with col2:
-            st.metric("Projected Gini Coefficient", f"{proj_gini:.3f}")
-        with col3:
-            st.metric(
-                "Equity Improvement",
-                f"-{gini_change:.3f}",
-                delta=f"Improved" if gini_change > 0 else "No change",
-            )
-
-        # Cost-Benefit Analysis
-        st.markdown("---")
-        st.markdown("### Cost-Benefit Analysis")
-        st.info(
-            "📊 Cost data would be needed for detailed cost-benefit analysis. Showing estimated patients served per site."
-        )
-
-        avg_pop_per_site = (
-            additional_pop / num_recommended_sites if num_recommended_sites > 0 else 0
-        )
-        st.metric("Average Additional Population per Site", f"{avg_pop_per_site:,.0f}")
-
-        # Summary table
-        st.markdown("**Projection Summary**")
-        projection_summary = pd.DataFrame(
-            {
-                "Metric": [
-                    "Current Coverage (5km)",
-                    "Projected Coverage (5km)",
-                    "Coverage Improvement",
-                    "Additional Population Reached",
-                    "Current Gini Coefficient",
-                    "Projected Gini Coefficient",
-                    "Equity Improvement",
-                    "Avg Population per New Site",
-                ],
-                "Value": [
-                    f"{coverage_pct:.1f}%",
-                    f"{proj_cov_pct:.1f}%",
-                    f"+{improvement:.1f} pp",
-                    f"{additional_pop:,.0f}",
-                    f"{gini_coefficient:.3f}",
-                    f"{proj_gini:.3f}",
-                    f"-{gini_change:.3f}",
-                    f"{avg_pop_per_site:,.0f}",
-                ],
-            }
-        )
-        st.dataframe(projection_summary, use_container_width=True, hide_index=True)
-
-    # Export functionality
-    st.markdown("---")
-    st.markdown("### 💾 Export Data")
-
-    # Prepare facilities data for export
-    display_facilities = all_facilities.copy()
-    display_facilities = display_facilities.sort_values(
-        ["ownership", "type", "common_name"]
-    )
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        # Export facilities
-        csv_facilities = display_facilities.to_csv(index=False)
-        st.download_button(
-            label="Download Facilities CSV",
-            data=csv_facilities,
-            file_name=f"facilities_coverage_{coverage_radius}km.csv",
-            mime="text/csv",
-        )
-
-    with col2:
-        # Export demographic coverage data if available
-        if demographic_coverage:
-            demo_export_df = pd.DataFrame(demographic_coverage)
-            csv_demographic = demo_export_df.to_csv(index=False)
-            st.download_button(
-                label="Download Demographic Coverage CSV",
-                data=csv_demographic,
-                file_name=f"demographic_coverage_{coverage_radius}km.csv",
-                mime="text/csv",
-            )
-        else:
-            # Fallback: export coverage summary
-            coverage_summary = pd.DataFrame(
-                {
-                    "Metric": [
-                        "Total Population",
-                        "Covered Population (5km)",
-                        "Coverage % (5km)",
-                        "Total Facilities",
-                    ],
-                    "Value": [
-                        f"{population_df[pop_column].sum():,.0f}",
-                        f"{covered_pop:,.0f}",
-                        f"{coverage_pct:.1f}%",
-                        f"{len(all_facilities)}",
-                    ],
-                }
-            )
-            csv_summary = coverage_summary.to_csv(index=False)
-        st.download_button(
-            label="Download Coverage Summary CSV",
-            data=csv_summary,
-            file_name=f"coverage_summary_{coverage_radius}km.csv",
-            mime="text/csv",
-        )
-
 except Exception as e:
     st.error(f"Error loading data: {str(e)}")
     st.exception(e)
-
 # Footer
 st.markdown(
     """

@@ -5,7 +5,9 @@ from datetime import datetime, date, time
 import json
 from app import render_navigation
 
-st.set_page_config(page_title="Visit Logs", page_icon="📋", layout="wide")
+st.set_page_config(
+    page_title="Visit Logs", page_icon="assets/gaia_icon.png", layout="wide"
+)
 
 # Load brand CSS
 try:
