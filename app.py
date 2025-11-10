@@ -5,7 +5,6 @@ import numpy as np
 import json
 from data_utils import (
     ensure_population_csv,
-    ensure_all_population_csvs,
     prepare_population_dataframe,
     POPULATION_CACHE_HASH_FUNCS,
 )
@@ -16,6 +15,14 @@ from sklearn.neighbors import BallTree
 st.set_page_config(
     page_title="GAIA Planning", page_icon="assets/gaia_icon.png", layout="wide"
 )
+
+# Pre-unzip only the general population dataset (most commonly used)
+# Other datasets will be unzipped on-demand when selected
+try:
+    ensure_population_csv("general")
+except FileNotFoundError:
+    # Dataset will be unzipped on-demand if not found
+    pass
 
 # Load brand CSS
 try:
