@@ -3,6 +3,7 @@ import pandas as pd
 import pydeck as pdk
 import numpy as np
 import json
+import sys
 from data_utils import (
     ensure_population_csv,
     prepare_population_dataframe,
@@ -15,6 +16,7 @@ from sklearn.neighbors import BallTree
 st.set_page_config(
     page_title="GAIA Planning", page_icon="assets/gaia_icon.png", layout="wide"
 )
+print("--- app.py script started ---", flush=True)
 
 # Pre-unzip only the general population dataset (most commonly used)
 # Other datasets will be unzipped on-demand when selected
@@ -145,20 +147,25 @@ def load_population_data(dataset_name):
     import os
 
     cache_file = f"data/.cache/mwi_{dataset_name}_2020_filtered.parquet"
+    print(f"Attempting to load population cache: {cache_file}", flush=True)
     
     try:
         if os.path.exists(cache_file):
             # Load from pre-computed cache (very fast!)
             df = pd.read_parquet(cache_file)
+            print("Successfully loaded population from parquet cache.", flush=True)
             return prepare_population_dataframe(df, dataset_name)
     except Exception as e:
-        print(f"Could not load cache: {e}")
+        print(f"Could not load cache: {e}", flush=True)
     
     # Ensure the raw CSV exists locally (extract from zip if needed)
+    print(f"Ensuring population CSV for {dataset_name} exists...", flush=True)
     csv_path = ensure_population_csv(dataset_name)
     
     # Load the data
+    print(f"Loading population from CSV: {csv_path}", flush=True)
     df = pd.read_csv(csv_path)
+    print("Successfully loaded population from CSV.", flush=True)
     
     # Filter out zero or very low population values for cleaner visualization
     df = df[df[f"mwi_{dataset_name}_2020"] > 0.5]
@@ -177,6 +184,7 @@ def load_population_data(dataset_name):
     except Exception as e:
         print(f"Warning: Could not save cache: {e}")
     
+    print(f"--- Finished load_population_data for {dataset_name} ---", flush=True)
     return df
 
 
@@ -388,6 +396,7 @@ def render_navigation(pages):
 
 def map_page():
     """Main map visualization page"""
+    print("--- map_page() started ---", flush=True)
     # Hero section
     st.markdown(
         """
@@ -434,8 +443,10 @@ def map_page():
 
     # Load data
     try:
+        print("Loading clinic and MHFR data...", flush=True)
         clinic_df = load_clinic_data()
         mhfr_df = load_mhfr_facilities()
+        print("Successfully loaded clinic and MHFR data.", flush=True)
 
         st.markdown("---")
 
@@ -443,12 +454,15 @@ def map_page():
         
         # Load population data
         population_df = None
+        print("Checking if population data should be loaded...", flush=True)
         if show_population:
             with st.spinner(f"Loading {selected_dataset} data..."):
+                print(f"Loading population data for {selected_dataset}...", flush=True)
                 population_df = load_population_data(
                     population_datasets[selected_dataset]
                 )
                 pop_column = f"mwi_{population_datasets[selected_dataset]}_2020"
+                print("Successfully loaded population data.", flush=True)
         
 
 
@@ -768,7 +782,9 @@ def map_page():
                 map_style="road",
             )
 
+        print("Rendering pydeck chart...", flush=True)
         st.pydeck_chart(r)
+        print("Successfully rendered pydeck chart.", flush=True)
         
         # Calculate coverage metrics based on visible facilities
         visible_facilities = []
@@ -1033,4 +1049,6 @@ st.markdown(
 )
 
 # Run the current page
+print("--- Preparing to run current page ---", flush=True)
 current_page.run()
+print("--- Page run complete ---", flush=True)
